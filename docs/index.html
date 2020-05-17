@@ -70,12 +70,12 @@
 <p><a href="http://npmjs.com/package/node-smhw">npm repository</a></p>
 <h2>Examples</h2>
 <h3>Getting all tasks for tomorrow</h3>
-<pre class="prettyprint source lang-js"><code>const Client = new ShowMyHomework.Client();
+<pre class="prettyprint source lang-js"><code>const client = new ShowMyHomework.Client();
 
-Client.searchSchools(&quot;Elk Valley Elementary&quot;).then(function (school) {
-	Client.login(school[0].id, &quot;biglad1@biglads.com&quot;, &quot;password&quot;).then(() => {
-		Client.getTodo().then(function (tasks) {
-			var tasks_for_tomorrow = tasks.filter(function (task) {
+client.searchSchools(&quot;Elk Valley Elementary&quot;).then(school => {
+	client.login(school[0].id, &quot;biglad1@biglads.com&quot;, &quot;password&quot;).then(() => {
+		client.getTodo().then(tasks => {
+			var tasks_for_tomorrow = tasks.filter(task => {
 				var today = new Date();
 				var tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
 				var task_due = new Date(task.due_timestamp);
@@ -89,9 +89,9 @@ Client.searchSchools(&quot;Elk Valley Elementary&quot;).then(function (school) {
 });
 </code></pre>
 <h3>Getting yours and teachers comments on homework</h3>
-<pre class="prettyprint source lang-js"><code>Client.getHomework(&quot;homework id&quot;).then(function (homework) {
-	homework.getOwnSubmission().then(function (submission) {
-		submission.getComments().then(function (comments) {
+<pre class="prettyprint source lang-js"><code>client.getHomework(&quot;homework id&quot;).then(homework => {
+	homework.getSubmission().then(submisison => {
+		submission.getComments().then(comments => {
 			console.log(comments); // Array of SubmissionComment objects
 		});
 	});
