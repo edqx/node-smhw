@@ -5,12 +5,12 @@
 ### Getting all tasks for tomorrow
 
 ```js
-const Client = new ShowMyHomework.Client();
+const client = new ShowMyHomework.Client();
 
-Client.searchSchools("Elk Valley Elementary").then(function (school) {
-	Client.login(school[0].id, "biglad1@biglads.com", "password").then(() => {
-		Client.getTodo().then(function (tasks) {
-			var tasks_for_tomorrow = tasks.filter(function (task) {
+client.searchSchools("Elk Valley Elementary").then(school => {
+	client.login(school[0].id, "biglad1@biglads.com", "password").then(() => {
+		client.getTodo().then(tasks => {
+			var tasks_for_tomorrow = tasks.filter(task => {
 				var today = new Date();
 				var tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
 				var task_due = new Date(task.due_timestamp);
@@ -26,9 +26,9 @@ Client.searchSchools("Elk Valley Elementary").then(function (school) {
 
 ### Getting yours and teachers comments on homework
 ```js
-Client.getHomework("homework id").then(function (homework) {
-	homework.getOwnSubmission().then(function (submission) {
-		submission.getComments().then(function (comments) {
+client.getHomework("homework id").then(homework => {
+	homework.getSubmission().then(submisison => {
+		submission.getComments().then(comments => {
 			console.log(comments); // Array of SubmissionComment objects
 		});
 	});
