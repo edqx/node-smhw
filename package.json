@@ -1,0 +1,21 @@
+{
+  "name": "node-smhw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-docs": "jsdoc --configure .jsdoc.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "clean-jsdoc-theme": "^2.2.11",
+    "dotenv": "^8.2.0",
+    "jsdoc3-bootstrap": "^0.15.0",
+    "querystring": "^0.2.0",
+    "zlib": "^1.0.5"
+  },
+  "devDependencies": {
+    "better-docs": "^2.0.1"
+  }
+}

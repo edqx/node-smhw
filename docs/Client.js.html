@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Client.js</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/search.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js"></script> -->
+    <script src="scripts/fuse.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="styles/clean-jsdoc-theme.css">
+    
+    
+    
+<svg aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none">
+    <defs>
+        <symbol id="copy-icon" viewbox="0 0 488.3 488.3">
+            <g>
+                <path d="M314.25,85.4h-227c-21.3,0-38.6,17.3-38.6,38.6v325.7c0,21.3,17.3,38.6,38.6,38.6h227c21.3,0,38.6-17.3,38.6-38.6V124    C352.75,102.7,335.45,85.4,314.25,85.4z M325.75,449.6c0,6.4-5.2,11.6-11.6,11.6h-227c-6.4,0-11.6-5.2-11.6-11.6V124    c0-6.4,5.2-11.6,11.6-11.6h227c6.4,0,11.6,5.2,11.6,11.6V449.6z"/>
+                <path d="M401.05,0h-227c-21.3,0-38.6,17.3-38.6,38.6c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5c0-6.4,5.2-11.6,11.6-11.6h227    c6.4,0,11.6,5.2,11.6,11.6v325.7c0,6.4-5.2,11.6-11.6,11.6c-7.5,0-13.5,6-13.5,13.5s6,13.5,13.5,13.5c21.3,0,38.6-17.3,38.6-38.6    V38.6C439.65,17.3,422.35,0,401.05,0z"/>
+            </g>
+        </symbol>
+    </defs>
+</svg>
+
+</head>
+<body>
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html"><div class="text">Home</div></a></h2><div class="search-box"><input type="text" placeholder="Search..." id="search-box" /><div class="search-item-container" id="search-item-container"><ul class="search-item-ul" id="search-item-ul"></ul></div></div><div class="sidebar-list-div"><h3>Classes</h3><ul><li><a href="Attachment.html">Attachment</a><ul class='methods'><li data-type='method'><a href="Attachment.html#getUser">getUser</a></li></ul></li><li><a href="ClassGroup.html">ClassGroup</a><ul class='methods'><li data-type='method'><a href="ClassGroup.html#getSchool">getSchool</a></li><li data-type='method'><a href="ClassGroup.html#getStudents">getStudents</a></li><li data-type='method'><a href="ClassGroup.html#getTeachers">getTeachers</a></li></ul></li><li><a href="ClassYear.html">ClassYear</a><ul class='methods'><li data-type='method'><a href="ClassYear.html#getSchool">getSchool</a></li></ul></li><li><a href="ClientAuthentication.html">ClientAuthentication</a></li><li><a href="ClientEvent.html">ClientEvent</a><ul class='methods'><li data-type='method'><a href="ClientEvent.html#clear">clear</a></li><li data-type='method'><a href="ClientEvent.html#getSubmissionComment">getSubmissionComment</a></li><li data-type='method'><a href="ClientEvent.html#getSubmissionEvent">getSubmissionEvent</a></li></ul></li><li><a href="Employee.html">Employee</a><ul class='methods'><li data-type='method'><a href="Employee.html#getSchool">getSchool</a></li><li data-type='method'><a href="Employee.html#getUser">getUser</a></li></ul></li><li><a href="Homework.html">Homework</a><ul class='methods'><li data-type='method'><a href="Homework.html#getAttachments">getAttachments</a></li><li data-type='method'><a href="Homework.html#getTeacher">getTeacher</a></li></ul></li><li><a href="School.html">School</a><ul class='methods'><li data-type='method'><a href="School.html#getClassGroups">getClassGroups</a></li><li data-type='method'><a href="School.html#getClassYears">getClassYears</a></li><li data-type='method'><a href="School.html#getDetentionTemplates">getDetentionTemplates</a></li><li data-type='method'><a href="School.html#getEmployees">getEmployees</a></li><li data-type='method'><a href="School.html#getPrivateInformation">getPrivateInformation</a></li></ul></li><li><a href="SchoolPrivateInformation.html">SchoolPrivateInformation</a></li><li><a href="SMHWClient.html">SMHWClient</a><ul class='methods'><li data-type='method'><a href="SMHWClient.html#getAttachment">getAttachment</a></li><li data-type='method'><a href="SMHWClient.html#getAttachments">getAttachments</a></li><li data-type='method'><a href="SMHWClient.html#getClassGroup">getClassGroup</a></li><li data-type='method'><a href="SMHWClient.html#getClassGroups">getClassGroups</a></li><li data-type='method'><a href="SMHWClient.html#getEmployee">getEmployee</a></li><li data-type='method'><a href="SMHWClient.html#getEmployees">getEmployees</a></li><li data-type='method'><a href="SMHWClient.html#getEvent">getEvent</a></li><li data-type='method'><a href="SMHWClient.html#getEvents">getEvents</a></li><li data-type='method'><a href="SMHWClient.html#getHomework">getHomework</a></li><li data-type='method'><a href="SMHWClient.html#getHomeworks">getHomeworks</a></li><li data-type='method'><a href="SMHWClient.html#getOwnEvents">getOwnEvents</a></li><li data-type='method'><a href="SMHWClient.html#getSchool">getSchool</a></li><li data-type='method'><a href="SMHWClient.html#getStudent">getStudent</a></li><li data-type='method'><a href="SMHWClient.html#getStudents">getStudents</a></li><li data-type='method'><a href="SMHWClient.html#getSubmissionMethods">getSubmissionMethods</a></li><li data-type='method'><a href="SMHWClient.html#getTask">getTask</a></li><li data-type='method'><a href="SMHWClient.html#getTasks">getTasks</a></li><li data-type='method'><a href="SMHWClient.html#getUser">getUser</a></li><li data-type='method'><a href="SMHWClient.html#getUsers">getUsers</a></li><li data-type='method'><a href="SMHWClient.html#login">login</a></li><li data-type='method'><a href="SMHWClient.html#stopHeartbeat">stopHeartbeat</a></li></ul></li><li><a href="Student.html">Student</a><ul class='methods'><li data-type='method'><a href="Student.html#getClassGroups">getClassGroups</a></li></ul></li><li><a href="SubmissionComment.html">SubmissionComment</a><ul class='methods'><li data-type='method'><a href="SubmissionComment.html#getUser">getUser</a></li></ul></li><li><a href="SubmissionEvent.html">SubmissionEvent</a><ul class='methods'><li data-type='method'><a href="SubmissionEvent.html#getTeacher">getTeacher</a></li></ul></li><li><a href="SubmissionMethod.html">SubmissionMethod</a></li><li><a href="Task.html">Task</a><ul class='methods'><li data-type='method'><a href="Task.html#getAssignment">getAssignment</a></li><li data-type='method'><a href="Task.html#setCompleted">setCompleted</a></li><li data-type='method'><a href="Task.html#toggleCompleted">toggleCompleted</a></li></ul></li><li><a href="User.html">User</a></li><li><a href="UserPrivateInformation.html">UserPrivateInformation</a></li></ul></div>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Client.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const request = require("./request.js");
+
+const API_BASE_URL = "api.showmyhomework.co.uk";
+const SATCHELONE = "https://www.satchelone.com"
+
+const CLIENTID_WEB = "55283c8c45d97ffd88eb9f87e13f390675c75d22b4f2085f43b0d7355c1f";
+const CLIENTSECRET_WEB = "c8f7d8fcd0746adc50278bc89ed6f004402acbbf4335d3cb12d6ac6497d3";
+
+const Attachment = require("./structures/Attachment.js");
+const ClassGroup = require("./structures/ClassGroup.js");
+const ClassYear = require("./structures/ClassYear.js");
+const ClientAuthentication = require("./structures/ClientAuthentication.js");
+const ClientEvent = require("./structures/ClientEvent.js");
+const Employee = require("./structures/Employee.js");
+const Homework = require("./structures/Homework.js");
+const School = require("./structures/School.js");
+const SchoolPrivateInformation = require("./structures/SchoolPrivateInformation.js");
+const Student = require("./structures/Student.js");
+const SubmissionMethod = require("./structures/SubmissionMethod.js");
+const SubmissionComment = require("./structures/SubmissionComment.js");
+const SubmissionEvent = require("./structures/SubmissionEvent.js");
+const Task = require("./structures/Task.js");
+const User = require("./structures/User.js");
+const UserPrivateInformation = require("./structures/UserPrivateInformation.js");
+
+
+/**
+ * Represents access to SatchelOne's SMHW API.
+ */
+class SMHWClient {
+    /**
+     * Instantiate a SMHW Client.
+     * @param {Object} options Options to instantiate the client with.
+     */
+    constructor (options = {}) {
+        /**
+         * Options for the client.
+         * @type {Object}
+         * @private
+         */
+        this._options = options;
+
+        /**
+         * Authentication information for the client.
+         * @type {ClientAuthentication}
+         * @private
+         */
+        this._auth = null;
+
+        /**
+         * The active client heartbeat.
+         * @type {Number}
+         * @private
+         */
+        this._heartbeat = null;
+
+        /**
+         * The timestamp of the last heartbeat.
+         * @type {Number}
+         * @private
+         */
+        this._last_heartbeat = null;
+        
+        /**
+         * The student user of the client.
+         * @type {Student}
+         */
+        this.student = null;
+        
+        /**
+         * The school that the student user of the client belongs to.
+         * @type {School}
+         */
+        this.school = null;
+        
+        /**
+         * The authorised user of the client.
+         * @type {User}
+         */
+        this.user = null;
+    }
+
+    /**
+     * Keep a client connection alive.
+     * @returns {Promise}
+     * @ignore
+     */
+    beat() {
+        return new Promise((resolve, reject) => {
+            this.make("GET", "api/heartbeat", {
+                referer: "/calendar/personal"
+            }).then(response => {
+                this._last_heartbeat = response.time;
+
+                resolve(response);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Make a normal request or an authorised one if authentication is available.
+     * @param {String} method The method of request to use.
+     * @param {String} path The path of the resource to make a request to.
+     * @param {Object} options Options for the request.
+     * @returns {Promise&lt;Object>}
+     * @private
+     * @ignore
+     */
+    make(method, path, options = {}) {
+        if (!options.headers) {
+            options.headers = {};
+        }
+
+        if (this._auth) {
+            options.headers.authorization = "Bearer " + this._auth.access_token;
+        }
+
+        return request.make(method, path, options);
+    }
+
+    /**
+     * Log in to a SMHW account for an access token to make authorised requests to SMHW.
+     * @param {Number} school_id The ID of the school of the account to log in to.
+     * @param {String} username The username of the account to log in to.
+     * @param {String} password The password of the account to log in to. (Not stored)
+     * @returns {Promise}
+     */
+    login(school_id, username, password) {
+        return new Promise((resolve, reject) => {
+            this.make("POST", "/oauth/token", {
+                body: {
+                    grant_type: "password",
+                    username: username,
+                    password: password,
+                    school_id: school_id
+                },
+                query: {
+                    client_id: CLIENTID_WEB,
+                    client_secret: CLIENTSECRET_WEB
+                },
+                headers: {
+                    "accept": "*/*"
+                },
+                referer: "/login"
+            }).then(response => {
+                if (response.errors) {
+                    reject(response.errors);
+                    return;
+                }
+
+                this._auth = new ClientAuthentication(response);
+
+                this.make("GET", "/api/students/" + this._auth.user_id, {
+                    query: {
+                        include: "user_private_info,school"
+                    }
+                }).then(response => {
+                    this.student = new Student(this, response.student);
+                    this.school = new School(this, response.schools[0]);
+                    this.user = new UserPrivateInformation(this, response.user_private_infos[0]);
+
+                    resolve(true);
+
+                    if (this.options.keep_heartbeat) {
+                        this._heartbeat = setInterval(_ => {
+                            this.beat();
+                        });
+                    }
+                }).catch(reject);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Stop a continuous client connection.
+     */
+    stopHeartbeat() {
+        if (this._heartbeat) {
+            clearInterval(this._heartbeat);
+        }
+    }
+
+    /**
+     * Get submission methods on SMHW.
+     * @param {Array&lt;Number>} ids An array of submission method IDs to retrieve.
+     * @returns {Promise&lt;Array&lt;SubmissionMethod>>}
+     */
+    getSubmissionMethods(ids) {
+        if (ids &amp;&amp; !Array.isArray(ids)) {
+            return this.getSubmissionMethods([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/submission_methods").then(response => {
+                if (response.submission_methods) {
+                    resolve(response.submission_methods.map(submission_method => new SubmissionMethod(this, submission_method)));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get a school by ID.
+     * @param {Number} id The ID of the school to retrieve.
+     * @returns {Promise&lt;School>}
+     */
+    getSchool(id) {
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/schools/" + id).then(response => {
+                if (response.school) {
+                    resolve(new School(this.client, response.school));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    getSchoolPrivateInformation(id) {
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/school_private_infos/" + id).then(response => {
+                if (response.school_private_info) {
+                    resolve(new SchoolPrivateInformation(this.client, response.school_private_info));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get client events fired for the client user.
+     * @param {Object} options Event request options.
+     * @param {Array&lt;Number>} ids An array of event IDs to retrieve.
+     * @returns {Promise&lt;Array&lt;ClientEvent>>}
+     */
+    getOwnEvents(options, ids) {
+        if (!options) {
+            return this.getOwnEvents({}, ids);
+        }
+
+        if (ids &amp;&amp; !Array.isArray(ids)) {
+            return this.getOwnEvents(options, [ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/events", {
+                query: {
+                    limit: options.limit || 21,
+                    offset: options.offset || 0,
+                    recipient_id: options.recipient_id || this.user.id,
+                    visible: typeof options.visible === "undefined" ? true : options.visible
+                }
+            }).then(response => {
+                if (response.events) {
+                    if (ids) {
+                        var events = response.events.filter(event => ids.indexOf(event.id) !== -1);
+
+                        resolve(events.map(event => new ClientEvent(this, event)));
+                    } else {
+                        resolve(response.events.map(event => new ClientEvent(this, event)));
+                    }
+                } else {
+                    reject(response);
+                }
+            })
+        });
+    }
+
+    /**
+     * Get client events.
+     * @param {Array&lt;Number>} ids An array of Event IDs to retrieve.
+     * @returns {Promise&lt;Array&lt;ClientEvent>>}
+     */
+    getEvents(ids) {
+        if (!ids) {
+            return this.getOwnEvents();
+        } else if (!Array.isArray(ids)) {
+            return this.getEvents([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/events", {
+                query: {
+                    ids: ids
+                }
+            }).then(response => {
+                if (response.events) {
+                    if (ids) {
+                        var events = response.events.filter(event => ids.indexOf(event.id) !== -1);
+
+                        resolve(events.map(event => new ClientEvent(this, event)));
+                    } else {
+                        resolve(response.events.map(event => new ClientEvent(this, event)));
+                    }
+                } else {
+                    reject(response);
+                }
+            })
+        });
+    }
+
+    /**
+     * Get a client event by ID.
+     * @param {Number} id The ID of the event to retrieve.
+     * @returns {Promise&lt;ClientEvent>}
+     */
+    getEvent(id) {
+        return new Promise((resolve, reject) => {
+            this.getEvents([id]).then(events => {
+                resolve(events[0]);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get tasks set.
+     * @param {Array&lt;Number>} ids An array of task IDs to retrieve.
+     * @returns {Promise&lt;Array&lt;Task>>}
+     */
+    getTasks(ids) {
+        if (ids &amp;&amp; !Array.isArray(ids)) {
+            return this.getTasks([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/todos").then(response => {
+                if (response.todos) {
+                    if (ids) {
+                        var todos = response.todos.filter(todo => ids.indexOf(todo.id) !== -1);
+
+                        resolve(todos.map(todo => new Task(this, todo)));
+                    } else {
+                        resolve(response.todos.map(todo => new Task(this, todo)));
+                    }
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get a task by ID.
+     * @param {Number} id The ID of the task to retrieve.
+     * @returns {Promise&lt;Task>}
+     */
+    getTask(id) {
+        return new Promise((resolve, reject) => {
+            this.getTasks([id]).then(tasks => {
+                resolve(tasks[0]);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get students by IDs.
+     * @param {Array&lt;Number>} ids An array of Student IDs to retrieve.
+     * @returns {Promise&lt;Array&lt;Student>>}
+     */
+    getStudents(ids) {
+        if (ids &amp;&amp; !Array.isArray(ids)) {
+            return this.getStudents([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/students", {
+                query: {
+                    ids: ids
+                }
+            }).then(response => {
+                if (response.students) {
+                    resolve(response.students.map(student => new Student(this, student)));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get a student by ID.
+     * @param {Number} id The ID of the student to retrieve.
+     * @returns {Promise&lt;Student>}
+     */
+    getStudent(id) {
+        return new Promise((resolve, reject) => {
+            this.getStudents([id]).then(students => {
+                resolve(students[0]);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get employees by IDs.
+     * @param {Array&lt;Number>} ids An array of employee IDs to retrieve.
+     * @returns {Promise&lt;Array&lt;Employee>>}
+     */
+    getEmployees(ids) {
+        if (ids &amp;&amp; !Array.isArray(ids)) {
+            return this.getEmployees([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/employees", {
+                query: {
+                    ids
+                }
+            }).then(response => {
+                if (response.employees) {
+                    resolve(response.employees.map(employee => new Employee(this, employee)));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get an employee by ID.
+     * @param {Number} id The ID of the employee to retrieve.
+     * @returns {Promise&lt;Employee>}
+     */
+    getEmployee(id) {
+        return new Promise((resolve, reject) => {
+            this.getEmployees([id]).then(employees => {
+                resolve(employees[0]);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get users by IDs.
+     * @param {Array&lt;Number>} ids An array of user IDs to retrieve.
+     * @returns {Promise&lt;Array&lt;User>>}
+     */
+    getUsers(ids) {
+        if (ids &amp;&amp; !Array.isArray(ids)) {
+            return this.getUsers([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/users", {
+                query: {
+                    ids
+                }
+            }).then(response => {
+                if (response.users) {
+                    resolve(response.users.map(user => new User(this, user)));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get a user by ID.
+     * @param {Number} id The ID of the user to retrieve.
+     * @returns {Promise&lt;User>}
+     */
+    getUser(id) {
+        return new Promise((resolve, reject) => {
+            this.getUsers([id]).then(users => {
+                resolve(users[0]);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get class groups by IDs.
+     * @param {Array&lt;Number>} ids An array of class group IDs to retrieve.
+     * @returns {Promise&lt;Array&lt;ClassGroup>>}
+     */
+    getClassGroups(ids) {
+        if (ids &amp;&amp; !Array.isArray(ids)) {
+            return this.getClassGroups([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/class_groups", {
+                query: {
+                    ids: ids 
+                }
+            }).then(response => {
+                if (response.class_groups) {
+                    resolve(response.class_groups.map(class_group => new ClassGroup(this, class_group)));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get a class group by ID.
+     * @param {Number} id The ID of the class group to retrieve.
+     * @returns {Promise&lt;ClassGroup>}
+     */
+    getClassGroup(id) {
+        return new Promise((resolve, reject) => {
+            this.getClassgroups([id]).then(class_groups => {
+                resolve(class_groups[0]);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get attachments by IDs.
+     * @param {Array&lt;Number>} ids An array of attachment IDs to retrieve.
+     * @returns {Promise&lt;Array&lt;Attachment>>}
+     */
+    getAttachments(ids) {
+        if (ids &amp;&amp; !Array.isArray(ids)) {
+            return this.getAttachments([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/attachments", {
+                query: {
+                    ids: ids 
+                }
+            }).then(response => {
+                if (response.attachments) {
+                    resolve(response.attachments.map(attachment => new Attachment(this, attachment)));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get an attachment by ID.
+     * @param {Number} id The ID of the attachment to retrieve.
+     * @returns {Promise&lt;Attachment>}
+     */
+    getAttachment(id) {
+        return new Promise((resolve, reject) => {
+            this.getAttachments([id]).then(attachments => {
+                resolve(attachments[0]);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get homework assignments by IDs.
+     * @param {Array&lt;Number>} ids An array of homework IDs to retrieve.
+     * @returns {Promise&lt;Array&lt;Homework>>}
+     */
+    getHomeworks(ids) {
+        if (ids &amp;&amp; !Array.isArray(ids)) {
+            return this.getHomeworks([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/homeworks", {
+                query: {
+                    ids
+                }
+            }).then(response => {
+                if (response.homeworks) {
+                    resolve(response.homeworks.map(homework => new Homework(this, homework)));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get a homework assignment by ID.
+     * @param {Number} id The ID of the homework assignment to retrieve.
+     * @returns {Promise&lt;Homework>}
+     */
+    getHomework(id) {
+        return new Promise((resolve, reject) => {
+            this.getHomeworks([id]).then(homeworks => {
+                resolve(homeworks[0]);
+            }).catch(reject);
+        });
+    }
+}
+
+module.exports = SMHWClient;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+  
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+<script>
+var list = [{"title":"Attachment","link":"<a href=\"Attachment.html\">Attachment</a>"},{"title":"Attachment#getUser","link":"<a href=\"Attachment.html#getUser\">Attachment &rtrif; getUser</a>"},{"title":"ClassGroup","link":"<a href=\"ClassGroup.html\">ClassGroup</a>"},{"title":"ClassGroup#getSchool","link":"<a href=\"ClassGroup.html#getSchool\">ClassGroup &rtrif; getSchool</a>"},{"title":"ClassGroup#getStudents","link":"<a href=\"ClassGroup.html#getStudents\">ClassGroup &rtrif; getStudents</a>"},{"title":"ClassGroup#getTeachers","link":"<a href=\"ClassGroup.html#getTeachers\">ClassGroup &rtrif; getTeachers</a>"},{"title":"ClassYear","link":"<a href=\"ClassYear.html\">ClassYear</a>"},{"title":"ClassYear#getSchool","link":"<a href=\"ClassYear.html#getSchool\">ClassYear &rtrif; getSchool</a>"},{"title":"ClientAuthentication","link":"<a href=\"ClientAuthentication.html\">ClientAuthentication</a>"},{"title":"ClientEvent","link":"<a href=\"ClientEvent.html\">ClientEvent</a>"},{"title":"ClientEvent#clear","link":"<a href=\"ClientEvent.html#clear\">ClientEvent &rtrif; clear</a>"},{"title":"ClientEvent#getSubmissionComment","link":"<a href=\"ClientEvent.html#getSubmissionComment\">ClientEvent &rtrif; getSubmissionComment</a>"},{"title":"ClientEvent#getSubmissionEvent","link":"<a href=\"ClientEvent.html#getSubmissionEvent\">ClientEvent &rtrif; getSubmissionEvent</a>"},{"title":"Employee","link":"<a href=\"Employee.html\">Employee</a>"},{"title":"Employee#getSchool","link":"<a href=\"Employee.html#getSchool\">Employee &rtrif; getSchool</a>"},{"title":"Employee#getUser","link":"<a href=\"Employee.html#getUser\">Employee &rtrif; getUser</a>"},{"title":"Homework","link":"<a href=\"Homework.html\">Homework</a>"},{"title":"Homework#getAttachments","link":"<a href=\"Homework.html#getAttachments\">Homework &rtrif; getAttachments</a>"},{"title":"Homework#getTeacher","link":"<a href=\"Homework.html#getTeacher\">Homework &rtrif; getTeacher</a>"},{"title":"School","link":"<a href=\"School.html\">School</a>"},{"title":"School#getClassGroups","link":"<a href=\"School.html#getClassGroups\">School &rtrif; getClassGroups</a>"},{"title":"School#getClassYears","link":"<a href=\"School.html#getClassYears\">School &rtrif; getClassYears</a>"},{"title":"School#getDetentionTemplates","link":"<a href=\"School.html#getDetentionTemplates\">School &rtrif; getDetentionTemplates</a>"},{"title":"School#getEmployees","link":"<a href=\"School.html#getEmployees\">School &rtrif; getEmployees</a>"},{"title":"School#getPrivateInformation","link":"<a href=\"School.html#getPrivateInformation\">School &rtrif; getPrivateInformation</a>"},{"title":"SchoolPrivateInformation","link":"<a href=\"SchoolPrivateInformation.html\">SchoolPrivateInformation</a>"},{"title":"SMHWClient","link":"<a href=\"SMHWClient.html\">SMHWClient</a>"},{"title":"SMHWClient#getAttachment","link":"<a href=\"SMHWClient.html#getAttachment\">SMHWClient &rtrif; getAttachment</a>"},{"title":"SMHWClient#getAttachments","link":"<a href=\"SMHWClient.html#getAttachments\">SMHWClient &rtrif; getAttachments</a>"},{"title":"SMHWClient#getClassGroup","link":"<a href=\"SMHWClient.html#getClassGroup\">SMHWClient &rtrif; getClassGroup</a>"},{"title":"SMHWClient#getClassGroups","link":"<a href=\"SMHWClient.html#getClassGroups\">SMHWClient &rtrif; getClassGroups</a>"},{"title":"SMHWClient#getEmployee","link":"<a href=\"SMHWClient.html#getEmployee\">SMHWClient &rtrif; getEmployee</a>"},{"title":"SMHWClient#getEmployees","link":"<a href=\"SMHWClient.html#getEmployees\">SMHWClient &rtrif; getEmployees</a>"},{"title":"SMHWClient#getEvent","link":"<a href=\"SMHWClient.html#getEvent\">SMHWClient &rtrif; getEvent</a>"},{"title":"SMHWClient#getEvents","link":"<a href=\"SMHWClient.html#getEvents\">SMHWClient &rtrif; getEvents</a>"},{"title":"SMHWClient#getHomework","link":"<a href=\"SMHWClient.html#getHomework\">SMHWClient &rtrif; getHomework</a>"},{"title":"SMHWClient#getHomeworks","link":"<a href=\"SMHWClient.html#getHomeworks\">SMHWClient &rtrif; getHomeworks</a>"},{"title":"SMHWClient#getOwnEvents","link":"<a href=\"SMHWClient.html#getOwnEvents\">SMHWClient &rtrif; getOwnEvents</a>"},{"title":"SMHWClient#getSchool","link":"<a href=\"SMHWClient.html#getSchool\">SMHWClient &rtrif; getSchool</a>"},{"title":"SMHWClient#getStudent","link":"<a href=\"SMHWClient.html#getStudent\">SMHWClient &rtrif; getStudent</a>"},{"title":"SMHWClient#getStudents","link":"<a href=\"SMHWClient.html#getStudents\">SMHWClient &rtrif; getStudents</a>"},{"title":"SMHWClient#getSubmissionMethods","link":"<a href=\"SMHWClient.html#getSubmissionMethods\">SMHWClient &rtrif; getSubmissionMethods</a>"},{"title":"SMHWClient#getTask","link":"<a href=\"SMHWClient.html#getTask\">SMHWClient &rtrif; getTask</a>"},{"title":"SMHWClient#getTasks","link":"<a href=\"SMHWClient.html#getTasks\">SMHWClient &rtrif; getTasks</a>"},{"title":"SMHWClient#getUser","link":"<a href=\"SMHWClient.html#getUser\">SMHWClient &rtrif; getUser</a>"},{"title":"SMHWClient#getUsers","link":"<a href=\"SMHWClient.html#getUsers\">SMHWClient &rtrif; getUsers</a>"},{"title":"SMHWClient#login","link":"<a href=\"SMHWClient.html#login\">SMHWClient &rtrif; login</a>"},{"title":"SMHWClient#stopHeartbeat","link":"<a href=\"SMHWClient.html#stopHeartbeat\">SMHWClient &rtrif; stopHeartbeat</a>"},{"title":"Student","link":"<a href=\"Student.html\">Student</a>"},{"title":"Student#getClassGroups","link":"<a href=\"Student.html#getClassGroups\">Student &rtrif; getClassGroups</a>"},{"title":"SubmissionComment","link":"<a href=\"SubmissionComment.html\">SubmissionComment</a>"},{"title":"SubmissionComment#getUser","link":"<a href=\"SubmissionComment.html#getUser\">SubmissionComment &rtrif; getUser</a>"},{"title":"SubmissionEvent","link":"<a href=\"SubmissionEvent.html\">SubmissionEvent</a>"},{"title":"SubmissionEvent#getTeacher","link":"<a href=\"SubmissionEvent.html#getTeacher\">SubmissionEvent &rtrif; getTeacher</a>"},{"title":"SubmissionMethod","link":"<a href=\"SubmissionMethod.html\">SubmissionMethod</a>"},{"title":"Task","link":"<a href=\"Task.html\">Task</a>"},{"title":"Task#getAssignment","link":"<a href=\"Task.html#getAssignment\">Task &rtrif; getAssignment</a>"},{"title":"Task#setCompleted","link":"<a href=\"Task.html#setCompleted\">Task &rtrif; setCompleted</a>"},{"title":"Task#toggleCompleted","link":"<a href=\"Task.html#toggleCompleted\">Task &rtrif; toggleCompleted</a>"},{"title":"User","link":"<a href=\"User.html\">User</a>"},{"title":"UserPrivateInformation","link":"<a href=\"UserPrivateInformation.html\">UserPrivateInformation</a>"}];
+setupSearch(list)
+</script>
+
+ 
+<script type="text/javascript" src="scripts/misc.js"></script>
+</body>
+</html>

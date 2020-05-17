@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>SchoolPrivateInformation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/search.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js"></script> -->
+    <script src="scripts/fuse.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="styles/clean-jsdoc-theme.css">
+    
+    
+    
+<svg aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none">
+    <defs>
+        <symbol id="copy-icon" viewbox="0 0 488.3 488.3">
+            <g>
+                <path d="M314.25,85.4h-227c-21.3,0-38.6,17.3-38.6,38.6v325.7c0,21.3,17.3,38.6,38.6,38.6h227c21.3,0,38.6-17.3,38.6-38.6V124    C352.75,102.7,335.45,85.4,314.25,85.4z M325.75,449.6c0,6.4-5.2,11.6-11.6,11.6h-227c-6.4,0-11.6-5.2-11.6-11.6V124    c0-6.4,5.2-11.6,11.6-11.6h227c6.4,0,11.6,5.2,11.6,11.6V449.6z"/>
+                <path d="M401.05,0h-227c-21.3,0-38.6,17.3-38.6,38.6c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5c0-6.4,5.2-11.6,11.6-11.6h227    c6.4,0,11.6,5.2,11.6,11.6v325.7c0,6.4-5.2,11.6-11.6,11.6c-7.5,0-13.5,6-13.5,13.5s6,13.5,13.5,13.5c21.3,0,38.6-17.3,38.6-38.6    V38.6C439.65,17.3,422.35,0,401.05,0z"/>
+            </g>
+        </symbol>
+    </defs>
+</svg>
+
+</head>
+<body>
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html"><div class="text">Home</div></a></h2><div class="search-box"><input type="text" placeholder="Search..." id="search-box" /><div class="search-item-container" id="search-item-container"><ul class="search-item-ul" id="search-item-ul"></ul></div></div><div class="sidebar-list-div"><h3>Classes</h3><ul><li><a href="Attachment.html">Attachment</a><ul class='methods'><li data-type='method'><a href="Attachment.html#getUser">getUser</a></li></ul></li><li><a href="ClassGroup.html">ClassGroup</a><ul class='methods'><li data-type='method'><a href="ClassGroup.html#getSchool">getSchool</a></li><li data-type='method'><a href="ClassGroup.html#getStudents">getStudents</a></li><li data-type='method'><a href="ClassGroup.html#getTeachers">getTeachers</a></li></ul></li><li><a href="ClassYear.html">ClassYear</a><ul class='methods'><li data-type='method'><a href="ClassYear.html#getSchool">getSchool</a></li></ul></li><li><a href="ClientAuthentication.html">ClientAuthentication</a></li><li><a href="ClientEvent.html">ClientEvent</a><ul class='methods'><li data-type='method'><a href="ClientEvent.html#clear">clear</a></li><li data-type='method'><a href="ClientEvent.html#getSubmissionComment">getSubmissionComment</a></li><li data-type='method'><a href="ClientEvent.html#getSubmissionEvent">getSubmissionEvent</a></li></ul></li><li><a href="Employee.html">Employee</a><ul class='methods'><li data-type='method'><a href="Employee.html#getSchool">getSchool</a></li><li data-type='method'><a href="Employee.html#getUser">getUser</a></li></ul></li><li><a href="Homework.html">Homework</a><ul class='methods'><li data-type='method'><a href="Homework.html#getAttachments">getAttachments</a></li><li data-type='method'><a href="Homework.html#getTeacher">getTeacher</a></li></ul></li><li><a href="School.html">School</a><ul class='methods'><li data-type='method'><a href="School.html#getClassGroups">getClassGroups</a></li><li data-type='method'><a href="School.html#getClassYears">getClassYears</a></li><li data-type='method'><a href="School.html#getDetentionTemplates">getDetentionTemplates</a></li><li data-type='method'><a href="School.html#getEmployees">getEmployees</a></li><li data-type='method'><a href="School.html#getPrivateInformation">getPrivateInformation</a></li></ul></li><li><a href="SchoolPrivateInformation.html">SchoolPrivateInformation</a></li><li><a href="SMHWClient.html">SMHWClient</a><ul class='methods'><li data-type='method'><a href="SMHWClient.html#getAttachment">getAttachment</a></li><li data-type='method'><a href="SMHWClient.html#getAttachments">getAttachments</a></li><li data-type='method'><a href="SMHWClient.html#getClassGroup">getClassGroup</a></li><li data-type='method'><a href="SMHWClient.html#getClassGroups">getClassGroups</a></li><li data-type='method'><a href="SMHWClient.html#getEmployee">getEmployee</a></li><li data-type='method'><a href="SMHWClient.html#getEmployees">getEmployees</a></li><li data-type='method'><a href="SMHWClient.html#getEvent">getEvent</a></li><li data-type='method'><a href="SMHWClient.html#getEvents">getEvents</a></li><li data-type='method'><a href="SMHWClient.html#getHomework">getHomework</a></li><li data-type='method'><a href="SMHWClient.html#getHomeworks">getHomeworks</a></li><li data-type='method'><a href="SMHWClient.html#getOwnEvents">getOwnEvents</a></li><li data-type='method'><a href="SMHWClient.html#getSchool">getSchool</a></li><li data-type='method'><a href="SMHWClient.html#getStudent">getStudent</a></li><li data-type='method'><a href="SMHWClient.html#getStudents">getStudents</a></li><li data-type='method'><a href="SMHWClient.html#getSubmissionMethods">getSubmissionMethods</a></li><li data-type='method'><a href="SMHWClient.html#getTask">getTask</a></li><li data-type='method'><a href="SMHWClient.html#getTasks">getTasks</a></li><li data-type='method'><a href="SMHWClient.html#getUser">getUser</a></li><li data-type='method'><a href="SMHWClient.html#getUsers">getUsers</a></li><li data-type='method'><a href="SMHWClient.html#login">login</a></li><li data-type='method'><a href="SMHWClient.html#stopHeartbeat">stopHeartbeat</a></li></ul></li><li><a href="Student.html">Student</a><ul class='methods'><li data-type='method'><a href="Student.html#getClassGroups">getClassGroups</a></li></ul></li><li><a href="SubmissionComment.html">SubmissionComment</a><ul class='methods'><li data-type='method'><a href="SubmissionComment.html#getUser">getUser</a></li></ul></li><li><a href="SubmissionEvent.html">SubmissionEvent</a><ul class='methods'><li data-type='method'><a href="SubmissionEvent.html#getTeacher">getTeacher</a></li></ul></li><li><a href="SubmissionMethod.html">SubmissionMethod</a></li><li><a href="Task.html">Task</a><ul class='methods'><li data-type='method'><a href="Task.html#getAssignment">getAssignment</a></li><li data-type='method'><a href="Task.html#setCompleted">setCompleted</a></li><li data-type='method'><a href="Task.html#toggleCompleted">toggleCompleted</a></li></ul></li><li><a href="User.html">User</a></li><li><a href="UserPrivateInformation.html">UserPrivateInformation</a></li></ul></div>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">SchoolPrivateInformation</h1>
+    
+
+    
+
+
+
+
+<section>
+
+
+<header>
+    
+        
+        <h2>
+        
+        SchoolPrivateInformation
+        
+        </h2>
+        
+        
+            <div class="class-description"><p>Represents private information for a school on SMHW.</p></div>
+            <hr/>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+        <h2>Constructor</h2>
+    
+
+    <h4 class="name" id="SchoolPrivateInformation"><span class="type-signature"></span>new SchoolPrivateInformation<span class="signature">(client, response)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+    <div class="description">
+        <p>Instantiate a SchoolPrivateInformation object.</p>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="method-member-container flex flex-col w-100 overflow-auto mt-20">
+        <strong>Parameters:</strong>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>client</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Client</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The client that is instantiating the object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>response</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The data for the object.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line10">line 10</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="_client"><span class="type-signature">(private) </span>_client<span class="type-signature"> :Client</span></h4>
+
+
+
+
+<div class="description">
+    <p>The client that instantiated this object.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Client</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line16">line 16</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="announcements_enabled"><span class="type-signature"></span>announcements_enabled<span class="type-signature"> :Boolean</span></h4>
+
+
+
+
+<div class="description">
+    <p>Whether or not the school has announcements enabled.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line22">line 22</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="badge_ids"><span class="type-signature"></span>badge_ids<span class="type-signature"> :Array.&lt;Number></span></h4>
+
+
+
+
+<div class="description">
+    <p>An array of IDs for school badges.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Array.&lt;Number></span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line28">line 28</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="current_academic_year_id"><span class="type-signature"></span>current_academic_year_id<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    <p>The current academic year ID for the school.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line34">line 34</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="expires_on"><span class="type-signature"></span>expires_on<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    <p>The timestamp of when the school['s trial] expires.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line40">line 40</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="features"><span class="type-signature"></span>features<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Whether certain features are enabled or disabled for the school.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Object</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line46">line 46</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="has_shared_files_in_zones"><span class="type-signature"></span>has_shared_files_in_zones<span class="type-signature"> :Boolean</span></h4>
+
+
+
+
+<div class="description">
+    <p>Whether or not the school has shared files in home page zones.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line100">line 100</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="id"><span class="type-signature"></span>id<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    <p>The ID of the school.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line106">line 106</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="kudos_settings_id"><span class="type-signature"></span>kudos_settings_id<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    <p>The ID of the school's kudos settings.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line112">line 112</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="links"><span class="type-signature"></span>links<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Links to school API resources.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Object</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line118">line 118</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="livechat_enabled"><span class="type-signature"></span>livechat_enabled<span class="type-signature"> :Boolean</span></h4>
+
+
+
+
+<div class="description">
+    <p>Whether or not the school has live chat enabled.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line130">line 130</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="locale"><span class="type-signature"></span>locale<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    <p>The locale code of the school.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line136">line 136</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="online_classes_enabled"><span class="type-signature"></span>online_classes_enabled<span class="type-signature"> :Boolean</span></h4>
+
+
+
+
+<div class="description">
+    <p>Whether or not the school has online classes enabled.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line142">line 142</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="student_signup_enabled"><span class="type-signature"></span>student_signup_enabled<span class="type-signature"> :Boolean</span></h4>
+
+
+
+
+<div class="description">
+    <p>Whether or not the school has student signup enabled.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line148">line 148</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="teacher_signup_enabled"><span class="type-signature"></span>teacher_signup_enabled<span class="type-signature"> :Boolean</span></h4>
+
+
+
+
+<div class="description">
+    <p>Whether or not the school has teacher signup enabled.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line154">line 154</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="total_storage_used"><span class="type-signature"></span>total_storage_used<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    <p>The total amount of storage used by the school.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line160">line 160</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="trial"><span class="type-signature"></span>trial<span class="type-signature"> :Boolean</span></h4>
+
+
+
+
+<div class="description">
+    <p>Whether or not the school is using a trial of SMHW.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolPrivateInformation.js.html">structures/SchoolPrivateInformation.js</a>, <a href="structures_SchoolPrivateInformation.js.html#line166">line 166</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+  
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+<script>
+var list = [{"title":"Attachment","link":"<a href=\"Attachment.html\">Attachment</a>"},{"title":"Attachment#getUser","link":"<a href=\"Attachment.html#getUser\">Attachment &rtrif; getUser</a>"},{"title":"ClassGroup","link":"<a href=\"ClassGroup.html\">ClassGroup</a>"},{"title":"ClassGroup#getSchool","link":"<a href=\"ClassGroup.html#getSchool\">ClassGroup &rtrif; getSchool</a>"},{"title":"ClassGroup#getStudents","link":"<a href=\"ClassGroup.html#getStudents\">ClassGroup &rtrif; getStudents</a>"},{"title":"ClassGroup#getTeachers","link":"<a href=\"ClassGroup.html#getTeachers\">ClassGroup &rtrif; getTeachers</a>"},{"title":"ClassYear","link":"<a href=\"ClassYear.html\">ClassYear</a>"},{"title":"ClassYear#getSchool","link":"<a href=\"ClassYear.html#getSchool\">ClassYear &rtrif; getSchool</a>"},{"title":"ClientAuthentication","link":"<a href=\"ClientAuthentication.html\">ClientAuthentication</a>"},{"title":"ClientEvent","link":"<a href=\"ClientEvent.html\">ClientEvent</a>"},{"title":"ClientEvent#clear","link":"<a href=\"ClientEvent.html#clear\">ClientEvent &rtrif; clear</a>"},{"title":"ClientEvent#getSubmissionComment","link":"<a href=\"ClientEvent.html#getSubmissionComment\">ClientEvent &rtrif; getSubmissionComment</a>"},{"title":"ClientEvent#getSubmissionEvent","link":"<a href=\"ClientEvent.html#getSubmissionEvent\">ClientEvent &rtrif; getSubmissionEvent</a>"},{"title":"Employee","link":"<a href=\"Employee.html\">Employee</a>"},{"title":"Employee#getSchool","link":"<a href=\"Employee.html#getSchool\">Employee &rtrif; getSchool</a>"},{"title":"Employee#getUser","link":"<a href=\"Employee.html#getUser\">Employee &rtrif; getUser</a>"},{"title":"Homework","link":"<a href=\"Homework.html\">Homework</a>"},{"title":"Homework#getAttachments","link":"<a href=\"Homework.html#getAttachments\">Homework &rtrif; getAttachments</a>"},{"title":"Homework#getTeacher","link":"<a href=\"Homework.html#getTeacher\">Homework &rtrif; getTeacher</a>"},{"title":"School","link":"<a href=\"School.html\">School</a>"},{"title":"School#getClassGroups","link":"<a href=\"School.html#getClassGroups\">School &rtrif; getClassGroups</a>"},{"title":"School#getClassYears","link":"<a href=\"School.html#getClassYears\">School &rtrif; getClassYears</a>"},{"title":"School#getDetentionTemplates","link":"<a href=\"School.html#getDetentionTemplates\">School &rtrif; getDetentionTemplates</a>"},{"title":"School#getEmployees","link":"<a href=\"School.html#getEmployees\">School &rtrif; getEmployees</a>"},{"title":"School#getPrivateInformation","link":"<a href=\"School.html#getPrivateInformation\">School &rtrif; getPrivateInformation</a>"},{"title":"SchoolPrivateInformation","link":"<a href=\"SchoolPrivateInformation.html\">SchoolPrivateInformation</a>"},{"title":"SMHWClient","link":"<a href=\"SMHWClient.html\">SMHWClient</a>"},{"title":"SMHWClient#getAttachment","link":"<a href=\"SMHWClient.html#getAttachment\">SMHWClient &rtrif; getAttachment</a>"},{"title":"SMHWClient#getAttachments","link":"<a href=\"SMHWClient.html#getAttachments\">SMHWClient &rtrif; getAttachments</a>"},{"title":"SMHWClient#getClassGroup","link":"<a href=\"SMHWClient.html#getClassGroup\">SMHWClient &rtrif; getClassGroup</a>"},{"title":"SMHWClient#getClassGroups","link":"<a href=\"SMHWClient.html#getClassGroups\">SMHWClient &rtrif; getClassGroups</a>"},{"title":"SMHWClient#getEmployee","link":"<a href=\"SMHWClient.html#getEmployee\">SMHWClient &rtrif; getEmployee</a>"},{"title":"SMHWClient#getEmployees","link":"<a href=\"SMHWClient.html#getEmployees\">SMHWClient &rtrif; getEmployees</a>"},{"title":"SMHWClient#getEvent","link":"<a href=\"SMHWClient.html#getEvent\">SMHWClient &rtrif; getEvent</a>"},{"title":"SMHWClient#getEvents","link":"<a href=\"SMHWClient.html#getEvents\">SMHWClient &rtrif; getEvents</a>"},{"title":"SMHWClient#getHomework","link":"<a href=\"SMHWClient.html#getHomework\">SMHWClient &rtrif; getHomework</a>"},{"title":"SMHWClient#getHomeworks","link":"<a href=\"SMHWClient.html#getHomeworks\">SMHWClient &rtrif; getHomeworks</a>"},{"title":"SMHWClient#getOwnEvents","link":"<a href=\"SMHWClient.html#getOwnEvents\">SMHWClient &rtrif; getOwnEvents</a>"},{"title":"SMHWClient#getSchool","link":"<a href=\"SMHWClient.html#getSchool\">SMHWClient &rtrif; getSchool</a>"},{"title":"SMHWClient#getStudent","link":"<a href=\"SMHWClient.html#getStudent\">SMHWClient &rtrif; getStudent</a>"},{"title":"SMHWClient#getStudents","link":"<a href=\"SMHWClient.html#getStudents\">SMHWClient &rtrif; getStudents</a>"},{"title":"SMHWClient#getSubmissionMethods","link":"<a href=\"SMHWClient.html#getSubmissionMethods\">SMHWClient &rtrif; getSubmissionMethods</a>"},{"title":"SMHWClient#getTask","link":"<a href=\"SMHWClient.html#getTask\">SMHWClient &rtrif; getTask</a>"},{"title":"SMHWClient#getTasks","link":"<a href=\"SMHWClient.html#getTasks\">SMHWClient &rtrif; getTasks</a>"},{"title":"SMHWClient#getUser","link":"<a href=\"SMHWClient.html#getUser\">SMHWClient &rtrif; getUser</a>"},{"title":"SMHWClient#getUsers","link":"<a href=\"SMHWClient.html#getUsers\">SMHWClient &rtrif; getUsers</a>"},{"title":"SMHWClient#login","link":"<a href=\"SMHWClient.html#login\">SMHWClient &rtrif; login</a>"},{"title":"SMHWClient#stopHeartbeat","link":"<a href=\"SMHWClient.html#stopHeartbeat\">SMHWClient &rtrif; stopHeartbeat</a>"},{"title":"Student","link":"<a href=\"Student.html\">Student</a>"},{"title":"Student#getClassGroups","link":"<a href=\"Student.html#getClassGroups\">Student &rtrif; getClassGroups</a>"},{"title":"SubmissionComment","link":"<a href=\"SubmissionComment.html\">SubmissionComment</a>"},{"title":"SubmissionComment#getUser","link":"<a href=\"SubmissionComment.html#getUser\">SubmissionComment &rtrif; getUser</a>"},{"title":"SubmissionEvent","link":"<a href=\"SubmissionEvent.html\">SubmissionEvent</a>"},{"title":"SubmissionEvent#getTeacher","link":"<a href=\"SubmissionEvent.html#getTeacher\">SubmissionEvent &rtrif; getTeacher</a>"},{"title":"SubmissionMethod","link":"<a href=\"SubmissionMethod.html\">SubmissionMethod</a>"},{"title":"Task","link":"<a href=\"Task.html\">Task</a>"},{"title":"Task#getAssignment","link":"<a href=\"Task.html#getAssignment\">Task &rtrif; getAssignment</a>"},{"title":"Task#setCompleted","link":"<a href=\"Task.html#setCompleted\">Task &rtrif; setCompleted</a>"},{"title":"Task#toggleCompleted","link":"<a href=\"Task.html#toggleCompleted\">Task &rtrif; toggleCompleted</a>"},{"title":"User","link":"<a href=\"User.html\">User</a>"},{"title":"UserPrivateInformation","link":"<a href=\"UserPrivateInformation.html\">UserPrivateInformation</a>"}];
+setupSearch(list)
+</script>
+
+ 
+<script type="text/javascript" src="scripts/misc.js"></script>
+</body>
+</html>
