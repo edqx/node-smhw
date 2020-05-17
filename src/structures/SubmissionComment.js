@@ -107,6 +107,26 @@ class SubmissionComment {
     getUser() {
         return this._client.getUser(this.user_id);
     }
+
+    /**
+     * Get the assignment that the comment was posted to.
+     * @type {Homework}
+     */
+    getAssignment() {
+        if (this.assignment.type === "homework") {
+            return this._client.getHomework(this.assignment.id);
+        }
+    }
+
+    /**
+     * Get the submission that the comment was posted to.
+     * @type {HomeworkSubmission}
+     */
+    getAssignmentSubmission() {
+        if (this.submission.type === "homework_submission") {
+            return this._client.getHomeworkSubmission(this.submission.id);
+        }
+    }
 }
 
 module.exports = SubmissionComment;

@@ -91,5 +91,15 @@ class SubmissionEvent {
     getTeacher() {
         return this._client.getEmployee(this.teacher_id);
     }
+    
+    /**
+     * Get submission that the event refers to.
+     * @returns {Promise<HomeworkSubmission>}
+     */
+    getSubmission() {
+        if (this.submission.type === "homework_submission") {
+            return this._client.getHomeworkSubmission(this.submission.id);
+        }
+    }
 }
 module.exports = SubmissionEvent;

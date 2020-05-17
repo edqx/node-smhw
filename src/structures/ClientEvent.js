@@ -126,15 +126,7 @@ class ClientEvent {
      * @returns {Promise<SubmissionComment>}
      */
     getSubmissionComment() {
-        return new Promise((resolve, reject) => {
-            this._client.make("GET", "/api/submission_comments/" + this.eventable.id).then(response => {
-                if (response.submission_comment) {
-                    resolve(new SubmissionComment(this._client, response.submission_comment));
-                } else {
-                    reject(response);
-                }
-            });
-        });v
+        return this._client.getSubmissionComment(this.eventable.id);
     }
 
     /**
@@ -142,15 +134,7 @@ class ClientEvent {
      * @returns {Promise<SubmissionEvent>}
      */
     getSubmissionEvent() {
-        return new Promise((resolve, reject) => {
-            this._client.make("GET", "/api/submission_events/" + this.eventable.id).then(response => {
-                if (response.submission_event) {
-                    resolve(new SubmissionEvent(this._client, response.submission_event));
-                } else {
-                    reject(response);
-                }
-            });
-        });
+        return this._client.getSubmissionEvent(this.eventable.id);
     }
 }
 

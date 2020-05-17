@@ -1,3 +1,6 @@
+const SubmissionComment = require("./SubmissionComment.js");
+const WebLink = require("./WebLink.js");
+
 /**
  * Represents a homework assignment on SMHW.
  */
@@ -192,7 +195,7 @@ class Homework {
          * An array of links to web resources for the homework.
          * @type {Array<String>}
          */
-        this.web_links = response.web_links;
+        this.web_links = response.web_links.map(web_link => new WebLink(web_link));
     }
 
     /**
@@ -210,6 +213,50 @@ class Homework {
      */
     getTeacher() {
         return this._client.getEmployee(this.teacher_id);
+    }
+
+    /**
+     * Get the client user's submission to the homework.
+     * @returns {Promise<HomeworkSubmission>}
+     */
+    getSubmission() {
+        return this._client.getHomeworkSubmission(this.id + "-" + this._client.user.id);
+    }
+
+    /**
+     * Get homework submissions to the homework.
+     * @param {Array<Number>} ids The IDs of the homework submissions to retrieve.
+     * @returns {Promise<Array<HomeworkSubmissions>>}
+     */
+    getSubmissions(ids) {
+        return this._client.getHomeworkSubmissions(ids || this.submission_ids);
+    }
+
+    /**
+     * Get comments made on homework submissions.
+     * @param {Array<Number>} ids The IDs of the homework comments to retrieve.
+     * @returns {Promise<Array<SubmissionComment>>}
+     */
+    getSubmissionComments(ids) {
+        return new Promise((resolve, reject) => {
+            this._client.make("GET", "/api/homework_submissions", {
+                query: {
+                    ids: this.submission_ids
+                }
+            }).then(response => {
+                if (response.submission_comments) {
+                    if (ids) {
+                        var submission_comments = response.submission_comments.filter(submission_comment => ids.indexOf(submission_comment.id) !== -1);
+
+                        resolve(submission_comments.map(submission_comment => new SubmissionComment(this._client, submission_comment)));
+                    } else {
+                        resolve(response.submission_comments.map(submission_comment => new SubmissionComment(this._client, submission_comment)));
+                    }
+                } else {
+                    reject(response);
+                }
+            });
+        });
     }
 }
 

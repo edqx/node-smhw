@@ -13,8 +13,11 @@ const ClientAuthentication = require("./structures/ClientAuthentication.js");
 const ClientEvent = require("./structures/ClientEvent.js");
 const Employee = require("./structures/Employee.js");
 const Homework = require("./structures/Homework.js");
+const HomeworkSubmission = require("./structures/HomeworkSubmission.js");
+const HomeworkSubmissionVersion = require("./structures/HomeworkSubmissionVersion.js");
 const School = require("./structures/School.js");
 const SchoolPrivateInformation = require("./structures/SchoolPrivateInformation.js");
+const StandardSubject = require("./structures/StandardSubject.js");
 const Student = require("./structures/Student.js");
 const SubmissionMethod = require("./structures/SubmissionMethod.js");
 const SubmissionComment = require("./structures/SubmissionComment.js");
@@ -22,7 +25,7 @@ const SubmissionEvent = require("./structures/SubmissionEvent.js");
 const Task = require("./structures/Task.js");
 const User = require("./structures/User.js");
 const UserPrivateInformation = require("./structures/UserPrivateInformation.js");
-
+const WebLink = require("./structures/WebLink.js");
 
 /**
  * Represents access to SatchelOne's SMHW API.
@@ -192,8 +195,41 @@ class SMHWClient {
 
         return new Promise((resolve, reject) => {
             this.make("GET", "/api/submission_methods").then(response => {
-                if (response.submission_methods) {
-                    resolve(response.submission_methods.map(submission_method => new SubmissionMethod(this, submission_method)));
+                if (response.sumbission_methods) {
+                    if (ids) {
+                        var sumbission_methods = response.submission_methods.filter(submission_method => ids.indexOf(submission_method.id) !== -1);
+
+                        resolve(submission_methods.map(submission_method => new SubmissionMethod(this, submission_method)));
+                    } else {
+                        resolve(response.submission_methods.map(submission_method => new SubmissionMethod(this, submission_method)));
+                    }
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get standard subjects on SMHW.
+     * @param {Array<Number>} ids An array of standard subject IDs to retrieve.
+     * @returns {Promise<Array<StandardSubject>>}
+     */
+    getStandardSubjects(ids) {
+        if (ids && !Array.isArray(ids)) {
+            return this.getStandardSubjects([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/standard_subjects").then(response => {
+                if (response.standard_subjects) {
+                    if (ids) {
+                        var standard_subjects = response.standard_subjects.filter(standard_subject => ids.indexOf(standard_subject.id) !== -1);
+
+                        resolve(standard_subjects.map(standard_subject => new StandardSubject(this, standard_subject)));
+                    } else {
+                        resolve(response.standard_subjects.map(standard_subject => new StandardSubject(this, standard_subject)));
+                    }
                 } else {
                     reject(response);
                 }
@@ -311,6 +347,44 @@ class SMHWClient {
         return new Promise((resolve, reject) => {
             this.getEvents([id]).then(events => {
                 resolve(events[0]);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get submission events by IDs.
+     * @param {Array<Number>} ids An array of submission event IDs to retrieve.
+     * @returns {Promise<Array<SubmissionEvents>>}
+     */
+    getSubmissionEvents(ids) {
+        if (ids && !Array.isArray(ids)) {
+            return this.getSubmissionEvents([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/submission_events", {
+                query: {
+                    ids: ids
+                }
+            }).then(response => {
+                if (response.submission_events) {
+                    resolve(response.submission_events.map(submission_event => new SubmissionEvent(this, submission_event)));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get a submission event by ID.
+     * @param {Number} id The ID of the submission event to retrieve.
+     * @returns {Promise<SubmissionEvent>}
+     */
+    getSubmissionEvent(id) {
+        return new Promise((resolve, reject) => {
+            this.getSubmissionEvents([id]).then(submission_events => {
+                resolve(submission_events[0]);
             }).catch(reject);
         });
     }
@@ -508,6 +582,44 @@ class SMHWClient {
     }
 
     /**
+     * Get submission commenst by IDs.
+     * @param {Array<Number>} ids An array of submission comment IDs to retrieve.
+     * @returns {Promise<Array<SubmissionComment>>}
+     */
+    getSubmissionComments(ids) {
+        if (ids && !Array.isArray(ids)) {
+            return this.getSubmissionComments([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this._client.make("GET", "/api/submission_comments", {
+                query: {
+                    ids
+                }
+            }).then(response => {
+                if (response.submission_comments) {
+                    resolve(response.submission_comments.map(submission_comment => new SubmissionComment(this, submission_comment)));
+                } else {
+                    reject(response);
+                }
+            });
+        });
+    }
+
+    /**
+     * Get a submission comment by ID.
+     * @param {Number} id The ID of the submission comment to retrieve.
+     * @returns {Promise<SubmissionComment>}
+     */
+    getSubmissionComment(id) {
+        return new Promise((resolve, reject) => {
+            this.getSubmissionComments([id]).then(submission_comments => {
+                resolve(submission_comments[0]);
+            }).catch(reject);
+        });
+    }
+
+    /**
      * Get attachments by IDs.
      * @param {Array<Number>} ids An array of attachment IDs to retrieve.
      * @returns {Promise<Array<Attachment>>}
@@ -579,6 +691,44 @@ class SMHWClient {
         return new Promise((resolve, reject) => {
             this.getHomeworks([id]).then(homeworks => {
                 resolve(homeworks[0]);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get homework submissions by IDs.
+     * @param {Array<Number>}
+     * @returns {Promise<Array<HomeworkSubmission>>}
+     */
+    getHomeworkSubmissions(ids) {
+        if (ids && !Array.isArray(ids)) {
+            return this.getHomeworkSubmissions([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/homework_submissions", {
+                query: {
+                    ids
+                }
+            }).then(response => {
+                if (response.homework_submissions) {
+                    resolve(response.homework_submissions.map(homework_submission => new HomeworkSubmission(this, homework_submission)));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get a homework submission by ID.
+     * @param {Number} id The ID of the homework submission to retrieve.
+     * @returns {Promise<Homework>}
+     */
+    getHomeworkSubmission(id) {
+        return new Promise((resolve, reject) => {
+            this.getHomeworkSubmissions([id]).then(homework_submissions => {
+                resolve(homework_submissions[0]);
             }).catch(reject);
         });
     }
