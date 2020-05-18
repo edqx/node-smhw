@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>UserPrivateInformation</title>
+    <title>FlexibleTask</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -47,7 +47,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">UserPrivateInformation</h1>
+    <h1 class="page-title">FlexibleTask</h1>
     
 
     
@@ -63,12 +63,12 @@
         
         <h2>
         
-        UserPrivateInformation
+        FlexibleTask
         
         </h2>
         
         
-            <div class="class-description"><p>Represents private information for a user on SMHW.</p></div>
+            <div class="class-description"><p>Represents a flexible task assignment on SMHW.</p></div>
             <hr/>
         
     
@@ -84,14 +84,14 @@
         <h2>Constructor</h2>
     
 
-    <h4 class="name" id="UserPrivateInformation"><span class="type-signature"></span>new UserPrivateInformation<span class="signature">(client, response)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="FlexibleTask"><span class="type-signature"></span>new FlexibleTask<span class="signature">(client, response)</span><span class="type-signature"></span></h4>
 
     
 
 
 
     <div class="description">
-        <p>Instantiate a UserPrivateInformation object</p>
+        <p>Istantiate a FlexibleTask object.</p>
     </div>
 
 
@@ -210,7 +210,7 @@
         <div class="details-item-container">
             <dt class="tag-source">Source:</dt>
             <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line11">line 11</a>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line12">line 12</a>
             </li></ul></dd>
         </div>
     
@@ -261,7 +261,7 @@
 
 
 <div class="description">
-    <p>The client that instantiated the object.</p>
+    <p>The client that instantiated this object.</p>
 </div>
 
 
@@ -312,7 +312,7 @@
         <div class="details-item-container">
             <dt class="tag-source">Source:</dt>
             <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line17">line 17</a>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line18">line 18</a>
             </li></ul></dd>
         </div>
     
@@ -331,13 +331,13 @@
 
         
             
-<h4 class="name" id="bio"><span class="type-signature"></span>bio<span class="type-signature"> :String</span></h4>
+<h4 class="name" id="attachment_ids"><span class="type-signature"></span>attachment_ids<span class="type-signature"> :Array.&lt;Number></span></h4>
 
 
 
 
 <div class="description">
-    <p>The bio of the user.</p>
+    <p>An array of IDs for attachments attached to the flexible task.</p>
 </div>
 
 
@@ -347,7 +347,7 @@
         <ul>
             <li>
                 
-<span class="param-type">String</span>
+<span class="param-type">Array.&lt;Number></span>
 
 
             </li>
@@ -388,7 +388,7 @@
         <div class="details-item-container">
             <dt class="tag-source">Source:</dt>
             <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line23">line 23</a>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line24">line 24</a>
             </li></ul></dd>
         </div>
     
@@ -407,14 +407,10 @@
 
         
             
-<h4 class="name" id="calendar_token"><span class="type-signature"></span>calendar_token<span class="type-signature"> :String</span></h4>
+<h4 class="name" id="bookstore_content_ids"><span class="type-signature"></span>bookstore_content_ids<span class="type-signature"> :Array.&lt;Number></span></h4>
 
 
 
-
-<div class="description">
-    <p>The calendar token for the user.</p>
-</div>
 
 
 
@@ -423,7 +419,7 @@
         <ul>
             <li>
                 
-<span class="param-type">String</span>
+<span class="param-type">Array.&lt;Number></span>
 
 
             </li>
@@ -464,7 +460,7 @@
         <div class="details-item-container">
             <dt class="tag-source">Source:</dt>
             <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line29">line 29</a>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line29">line 29</a>
             </li></ul></dd>
         </div>
     
@@ -483,13 +479,13 @@
 
         
             
-<h4 class="name" id="confirmed_at"><span class="type-signature"></span>confirmed_at<span class="type-signature"> :Number</span></h4>
+<h4 class="name" id="class_group_id"><span class="type-signature"></span>class_group_id<span class="type-signature"> :Number</span></h4>
 
 
 
 
 <div class="description">
-    <p>The timestamp of when the user was confirmed.</p>
+    <p>The ID of the class group that the flexible task was set for.</p>
 </div>
 
 
@@ -540,7 +536,7 @@
         <div class="details-item-container">
             <dt class="tag-source">Source:</dt>
             <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line35">line 35</a>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line35">line 35</a>
             </li></ul></dd>
         </div>
     
@@ -559,85 +555,13 @@
 
         
             
-<h4 class="name" id="confirmed_publication_warning"><span class="type-signature"></span>confirmed_publication_warning<span class="type-signature"> :Boolean</span></h4>
-
-
-
-
-
-
-    <div class="member-item-container flex">
-        <strong>Type: </strong>
-        <ul>
-            <li>
-                
-<span class="param-type">Boolean</span>
-
-
-            </li>
-        </ul>
-    </div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <div class="details-item-container">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line40">line 40</a>
-            </li></ul></dd>
-        </div>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="email"><span class="type-signature"></span>email<span class="type-signature"> :String</span></h4>
+<h4 class="name" id="class_group_name"><span class="type-signature"></span>class_group_name<span class="type-signature"> :String</span></h4>
 
 
 
 
 <div class="description">
-    <p>The email of the user.</p>
+    <p>The name of the class group that the flexible task was set for.</p>
 </div>
 
 
@@ -688,7 +612,7 @@
         <div class="details-item-container">
             <dt class="tag-source">Source:</dt>
             <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line46">line 46</a>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line41">line 41</a>
             </li></ul></dd>
         </div>
     
@@ -707,13 +631,545 @@
 
         
             
-<h4 class="name" id="has_filled_details"><span class="type-signature"></span>has_filled_details<span class="type-signature"> :Boolean</span></h4>
+<h4 class="name" id="class_year"><span class="type-signature"></span>class_year<span class="type-signature"> :String</span></h4>
 
 
 
 
 <div class="description">
-    <p>Whether or not the user has filled in details or not.</p>
+    <p>The class year that the flexible task was set for.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line47">line 47</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="community_resource_item_id"><span class="type-signature"></span>community_resource_item_id<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    <p>The ID of the flexible task community resource.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line53">line 53</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="created_at"><span class="type-signature"></span>created_at<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    <p>The timestamp of when the flexible task was created.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line59">line 59</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="description"><span class="type-signature"></span>description<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    <p>The description of the flexible task.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line65">line 65</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="due_on"><span class="type-signature"></span>due_on<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    <p>The timestamp of when the flexible task is due.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line71">line 71</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="duration"><span class="type-signature"></span>duration<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    <p>The duration of the flexible task.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line77">line 77</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="duration_units"><span class="type-signature"></span>duration_units<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    <p>The duration units of the flexible task.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line83">line 83</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="has_unread_comments"><span class="type-signature"></span>has_unread_comments<span class="type-signature"> :Boolean</span></h4>
+
+
+
+
+<div class="description">
+    <p>Whether or not the flexible task has unread comments.</p>
 </div>
 
 
@@ -764,7 +1220,7 @@
         <div class="details-item-container">
             <dt class="tag-source">Source:</dt>
             <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line52">line 52</a>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line89">line 89</a>
             </li></ul></dd>
         </div>
     
@@ -789,7 +1245,7 @@
 
 
 <div class="description">
-    <p>The ID of the user.</p>
+    <p>The ID of the flexible task.</p>
 </div>
 
 
@@ -840,7 +1296,7 @@
         <div class="details-item-container">
             <dt class="tag-source">Source:</dt>
             <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line58">line 58</a>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line95">line 95</a>
             </li></ul></dd>
         </div>
     
@@ -859,85 +1315,13 @@
 
         
             
-<h4 class="name" id="intercom_enabled"><span class="type-signature"></span>intercom_enabled<span class="type-signature"> :Boolean</span></h4>
-
-
-
-
-
-
-    <div class="member-item-container flex">
-        <strong>Type: </strong>
-        <ul>
-            <li>
-                
-<span class="param-type">Boolean</span>
-
-
-            </li>
-        </ul>
-    </div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <div class="details-item-container">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line63">line 63</a>
-            </li></ul></dd>
-        </div>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="last_activity_at"><span class="type-signature"></span>last_activity_at<span class="type-signature"> :Number</span></h4>
+<h4 class="name" id="issued_on"><span class="type-signature"></span>issued_on<span class="type-signature"> :Number</span></h4>
 
 
 
 
 <div class="description">
-    <p>The timestamp of the last activity of the user.</p>
+    <p>The timestamp of when the flexible task was issued.</p>
 </div>
 
 
@@ -988,7 +1372,7 @@
         <div class="details-item-container">
             <dt class="tag-source">Source:</dt>
             <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line69">line 69</a>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line101">line 101</a>
             </li></ul></dd>
         </div>
     
@@ -1007,161 +1391,13 @@
 
         
             
-<h4 class="name" id="last_subject"><span class="type-signature"></span>last_subject<span class="type-signature"> :String</span></h4>
-
-
-
-
-
-
-    <div class="member-item-container flex">
-        <strong>Type: </strong>
-        <ul>
-            <li>
-                
-<span class="param-type">String</span>
-
-
-            </li>
-        </ul>
-    </div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <div class="details-item-container">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line74">line 74</a>
-            </li></ul></dd>
-        </div>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="last_user_activity_at"><span class="type-signature"></span>last_user_activity_at<span class="type-signature"> :number</span></h4>
+<h4 class="name" id="marking_scheme_id"><span class="type-signature"></span>marking_scheme_id<span class="type-signature"> :Number</span></h4>
 
 
 
 
 <div class="description">
-    <p>The timestamp of the last activity of the user.</p>
-</div>
-
-
-
-    <div class="member-item-container flex">
-        <strong>Type: </strong>
-        <ul>
-            <li>
-                
-<span class="param-type">number</span>
-
-
-            </li>
-        </ul>
-    </div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <div class="details-item-container">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line80">line 80</a>
-            </li></ul></dd>
-        </div>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="mobile_device_id"><span class="type-signature"></span>mobile_device_id<span class="type-signature"> :Number</span></h4>
-
-
-
-
-<div class="description">
-    <p>The ID of the user's mobile device.</p>
+    <p>The ID of the marking scheme used for the flexible task.</p>
 </div>
 
 
@@ -1212,7 +1448,7 @@
         <div class="details-item-container">
             <dt class="tag-source">Source:</dt>
             <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line86">line 86</a>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line107">line 107</a>
             </li></ul></dd>
         </div>
     
@@ -1231,13 +1467,13 @@
 
         
             
-<h4 class="name" id="notification_preference_id"><span class="type-signature"></span>notification_preference_id<span class="type-signature"> :Number</span></h4>
+<h4 class="name" id="published_at"><span class="type-signature"></span>published_at<span class="type-signature"> :Number</span></h4>
 
 
 
 
 <div class="description">
-    <p>The ID of the user's notification preferences.</p>
+    <p>The timestamp of when the flexible task was published.</p>
 </div>
 
 
@@ -1288,7 +1524,7 @@
         <div class="details-item-container">
             <dt class="tag-source">Source:</dt>
             <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line92">line 92</a>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line113">line 113</a>
             </li></ul></dd>
         </div>
     
@@ -1307,165 +1543,13 @@
 
         
             
-<h4 class="name" id="root_folder_id"><span class="type-signature"></span>root_folder_id<span class="type-signature"> :Number</span></h4>
+<h4 class="name" id="purpose"><span class="type-signature"></span>purpose<span class="type-signature"> :String</span></h4>
 
 
 
 
 <div class="description">
-    <p>The ID of the user's root folder.</p>
-</div>
-
-
-
-    <div class="member-item-container flex">
-        <strong>Type: </strong>
-        <ul>
-            <li>
-                
-<span class="param-type">Number</span>
-
-
-            </li>
-        </ul>
-    </div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <div class="details-item-container">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line98">line 98</a>
-            </li></ul></dd>
-        </div>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="total_storage_used"><span class="type-signature"></span>total_storage_used<span class="type-signature"> :Number</span></h4>
-
-
-
-
-<div class="description">
-    <p>The total storage that the user used.</p>
-</div>
-
-
-
-    <div class="member-item-container flex">
-        <strong>Type: </strong>
-        <ul>
-            <li>
-                
-<span class="param-type">Number</span>
-
-
-            </li>
-        </ul>
-    </div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <div class="details-item-container">
-            <dt class="tag-source">Source:</dt>
-            <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line104">line 104</a>
-            </li></ul></dd>
-        </div>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="uid"><span class="type-signature"></span>uid<span class="type-signature"> :String</span></h4>
-
-
-
-
-<div class="description">
-    <p>The UID of the user.</p>
+    <p>The purpose of the flexible task.</p>
 </div>
 
 
@@ -1516,7 +1600,7 @@
         <div class="details-item-container">
             <dt class="tag-source">Source:</dt>
             <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line110">line 110</a>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line119">line 119</a>
             </li></ul></dd>
         </div>
     
@@ -1535,13 +1619,89 @@
 
         
             
-<h4 class="name" id="username"><span class="type-signature"></span>username<span class="type-signature"> :String</span></h4>
+<h4 class="name" id="school_id"><span class="type-signature"></span>school_id<span class="type-signature"> :Number</span></h4>
 
 
 
 
 <div class="description">
-    <p>The username of the user.</p>
+    <p>The ID of the school that the flexible task is set for.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line125">line 125</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="school_logo_url"><span class="type-signature"></span>school_logo_url<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    <p>The logo URL of of the school that the flexible task is set for.</p>
 </div>
 
 
@@ -1592,7 +1752,843 @@
         <div class="details-item-container">
             <dt class="tag-source">Source:</dt>
             <dd class="tag-source"><ul class="dummy"><li>
-                <a href="structures_UserPrivateInformation.js.html">structures/UserPrivateInformation.js</a>, <a href="structures_UserPrivateInformation.js.html#line116">line 116</a>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line131">line 131</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="school_name"><span class="type-signature"></span>school_name<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    <p>The name of the school that the flexible task is set for.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line137">line 137</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="subject"><span class="type-signature"></span>subject<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    <p>The subject of the flexible task.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line143">line 143</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="submission_ids"><span class="type-signature"></span>submission_ids<span class="type-signature"> :Array.&lt;Number></span></h4>
+
+
+
+
+<div class="description">
+    <p>An array of IDs for submissions</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Array.&lt;Number></span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line149">line 149</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="submission_method_id"><span class="type-signature"></span>submission_method_id<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    <p>The ID of the submission method to use.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line155">line 155</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="submission_status"><span class="type-signature"></span>submission_status<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    <p>The status of the submission for the client user.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line161">line 161</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="submission_type"><span class="type-signature"></span>submission_type<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    <p>The name of the submission method to use.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line167">line 167</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="teacher_id"><span class="type-signature"></span>teacher_id<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    <p>The ID of the teacher who set the flexible task.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line173">line 173</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="teacher_name"><span class="type-signature"></span>teacher_name<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    <p>The name of the teacher who set the flexible task.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line179">line 179</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="title"><span class="type-signature"></span>title<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    <p>The title of the flexible task.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line185">line 185</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="updated_at"><span class="type-signature"></span>updated_at<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    <p>The timestamp of when the flexible task was last updated.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line191">line 191</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="web_links"><span class="type-signature"></span>web_links<span class="type-signature"> :Array.&lt;String></span></h4>
+
+
+
+
+<div class="description">
+    <p>An array of links to web resources for the flexible task.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Array.&lt;String></span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line197">line 197</a>
             </li></ul></dd>
         </div>
     
@@ -1612,6 +2608,719 @@
         
     
 
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="getAttachments"><span class="type-signature"></span>getAttachments<span class="signature">(ids<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Attachment.html">Attachment</a>>}</span></h4>
+
+    
+
+
+
+    <div class="description">
+        <p>Get attachments on the flexible task.</p>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="method-member-container flex flex-col w-100 overflow-auto mt-20">
+        <strong>Parameters:</strong>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ids</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Number></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The IDs of the attachments to retrieve.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line207">line 207</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="method-member-container mt-20">
+    <strong>Returns:</strong>
+        
+            
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;<a href="Attachment.html">Attachment</a>></span>
+
+
+    </dd>
+</dl>
+ 
+    </div>
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getSubmission"><span class="type-signature"></span>getSubmission<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;FlexibleTaskSubmission>}</span></h4>
+
+    
+
+
+
+    <div class="description">
+        <p>Get the client user's submission to the flexible task.</p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line223">line 223</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="method-member-container mt-20">
+    <strong>Returns:</strong>
+        
+            
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;FlexibleTaskSubmission></span>
+
+
+    </dd>
+</dl>
+ 
+    </div>
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getSubmissionComments"><span class="type-signature"></span>getSubmissionComments<span class="signature">(ids<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Array.&lt;<a href="SubmissionComment.html">SubmissionComment</a>>>}</span></h4>
+
+    
+
+
+
+    <div class="description">
+        <p>Get comments made on flexible task submissions.</p>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="method-member-container flex flex-col w-100 overflow-auto mt-20">
+        <strong>Parameters:</strong>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ids</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Number></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The IDs of the flexible task comments to retrieve.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line241">line 241</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="method-member-container mt-20">
+    <strong>Returns:</strong>
+        
+            
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Array.&lt;<a href="SubmissionComment.html">SubmissionComment</a>>></span>
+
+
+    </dd>
+</dl>
+ 
+    </div>
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getSubmissions"><span class="type-signature"></span>getSubmissions<span class="signature">(ids<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;Array.&lt;FlexibleTaskSubmissions>>}</span></h4>
+
+    
+
+
+
+    <div class="description">
+        <p>Get submissions to the flexible task.</p>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="method-member-container flex flex-col w-100 overflow-auto mt-20">
+        <strong>Parameters:</strong>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ids</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Number></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The IDs of the flexible task submissions to retrieve.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line232">line 232</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="method-member-container mt-20">
+    <strong>Returns:</strong>
+        
+            
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Array.&lt;FlexibleTaskSubmissions>></span>
+
+
+    </dd>
+</dl>
+ 
+    </div>
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getTeacher"><span class="type-signature"></span>getTeacher<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Employee.html">Employee</a>>}</span></h4>
+
+    
+
+
+
+    <div class="description">
+        <p>Get the teacher who set the flexible task.</p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_FlexibleTask.js.html">structures/FlexibleTask.js</a>, <a href="structures_FlexibleTask.js.html#line215">line 215</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="method-member-container mt-20">
+    <strong>Returns:</strong>
+        
+            
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;<a href="Employee.html">Employee</a>></span>
+
+
+    </dd>
+</dl>
+ 
+    </div>
+
+
+
+
+        
     
 
     
