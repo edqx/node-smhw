@@ -142,7 +142,7 @@ class HomeworkSubmission {
 
     /**
      * Get comments made to the homework submission.
-     * @param {Array<Number>} ids An array of IDs of the homework submission comments to retrieve.
+     * @param {Array<Number>} [ids] An array of IDs of the homework submission comments to retrieve.
      * @returns {Promise<Array<SubmissionComment>>}
      */
     getComments(ids) {
@@ -171,7 +171,7 @@ class HomeworkSubmission {
 
     /**
      * Get submission events that refer to this submission.
-     * @param {Array<Number>} ids An array of IDs of submission events to retrieve.
+     * @param {Array<Number>} [ids] An array of IDs of submission events to retrieve.
      * @returns {Promise<Array<SubmissionEvent>>}
      */
     getEvents(ids) {
@@ -195,7 +195,7 @@ class HomeworkSubmission {
 
     /**
      * Get homework submission versions for the homework submission.
-     * @param {Array<Number>} ids An array of IDs of homework versions to retrieve.
+     * @param {Array<Number>} [ids] An array of IDs of homework versions to retrieve.
      * @returns {Promise<Array<HomeworkSubmissionVersion>>}
      */
     getVersions(ids) {
@@ -231,6 +231,44 @@ class HomeworkSubmission {
      */
     getStudent() {
         return this._client.getStudent(this.student_id);
+    }
+
+    /**
+     * Post a comment on the submission from the client user.
+     * @param {String} text The text of the comment.
+     * @returns {Promise<SubmissionComment>}
+     */
+    postComment(text) {
+        var type = "";
+
+        if (this.submission.type === "homework_submission") {
+            type = "HomeworkSubmission";
+        } else if (this.submission.type === "flexible_task_submission") {
+            type = "FlexibleTaskSubmission";
+        }
+
+        return new Promise((resolve, reject) => {
+            this._client.make("POST", "/api/submission_comments", {
+                payload: {
+                    assignment_id: null,
+                    assignment_type: null,
+                    created_at: null,
+                    submission_id: this.id,
+                    submission_type: this.submission_type,
+                    text,
+                    updated_at: null,
+                    user_id: null,
+                    user_name: null,
+                    user_type: null
+                }
+            }).then(response => {
+                if (response.submission_comment) {
+                    resolve(new SubmissionComment(this._client, response.submission_comment));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
     }
 }
 

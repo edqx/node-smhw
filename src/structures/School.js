@@ -551,7 +551,7 @@ class School {
 
     /**
      * Get class groups in the school.
-     * @param {Array<Number>} ids An array of class group IDs to retrieve.
+     * @param {Array<Number>} [ids] An array of class group IDs to retrieve.
      * @returns {Promise<Array<ClassGroup>>}
      */
     getClassGroups(ids) {
@@ -578,7 +578,7 @@ class School {
 
     /**
      * Get class years in the school.
-     * @param {Array<Number>} ids An array of class year IDs to retrieve.
+     * @param {Array<Number>} [ids] An array of class year IDs to retrieve.
      * @returns {Promise<Array<ClassYear>>}
      */
     getClassYears(ids) {
@@ -605,7 +605,7 @@ class School {
 
     /**
      * Get detention templates in the school.
-     * @param {Array<Number>} ids An array of detention template IDs to retrieve.
+     * @param {Array<Number>} [ids] An array of detention template IDs to retrieve.
      * @returns {Promise<Array<DetentionTemplate>>}
      */
     getDetentionTemplates(ids) {
@@ -623,7 +623,7 @@ class School {
 
     /**
      * Get employees in the school.
-     * @param {Array<Number>} ids An array of employee IDs to retrieve.
+     * @param {Array<Number>} [ids] An array of employee IDs to retrieve.
      * @returns {Promise<Array<Employee>>}
      */
     getEmployees(ids) {

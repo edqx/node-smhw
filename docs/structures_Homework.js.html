@@ -259,7 +259,7 @@ class Homework {
 
     /**
      * Get attachments on the homework.
-     * @param {Array&lt;Number>} ids The IDs of the attachments to retrieve.
+     * @param {Array&lt;Number>} [ids] The IDs of the attachments to retrieve.
      * @returns {Promise&lt;Attachment>}
      */
     getAttachments(ids) {
@@ -284,7 +284,7 @@ class Homework {
 
     /**
      * Get homework submissions to the homework.
-     * @param {Array&lt;Number>} ids The IDs of the homework submissions to retrieve.
+     * @param {Array&lt;Number>} [ids] The IDs of the homework submissions to retrieve.
      * @returns {Promise&lt;Array&lt;HomeworkSubmissions>>}
      */
     getSubmissions(ids) {
@@ -293,7 +293,7 @@ class Homework {
 
     /**
      * Get comments made on homework submissions.
-     * @param {Array&lt;Number>} ids The IDs of the homework comments to retrieve.
+     * @param {Array&lt;Number>} [ids] The IDs of the homework comments to retrieve.
      * @returns {Promise&lt;Array&lt;SubmissionComment>>}
      */
     getSubmissionComments(ids) {

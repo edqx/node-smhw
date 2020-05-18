@@ -115,6 +115,8 @@ class SubmissionComment {
     getAssignment() {
         if (this.assignment.type === "homework") {
             return this._client.getHomework(this.assignment.id);
+        } else if (this.assignment.type === "flexible_task") {
+            return this._client.getFlexibleTask(this.assignment.id);
         }
     }
 
@@ -125,6 +127,8 @@ class SubmissionComment {
     getAssignmentSubmission() {
         if (this.submission.type === "homework_submission") {
             return this._client.getHomeworkSubmission(this.submission.id);
+        } else if (this.submission.type === "flexible_task_submission") {
+            return this._client.getFlexibleTaskSubmission(this.submission.id);
         }
     }
 }

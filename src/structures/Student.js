@@ -82,7 +82,7 @@ class Student extends User {
 
     /**
      * Get class groups that the student is in.
-     * @param {Array<Number>} ids An array of class group IDs to retrieve.
+     * @param {Array<Number>} [ids] An array of class group IDs to retrieve.
      * @returns {Promise<Array<ClassGroup>>}
      */
     getClassGroups(ids) {

@@ -201,7 +201,7 @@ class HomeworkSubmission {
 
     /**
      * Get comments made to the homework submission.
-     * @param {Array&lt;Number>} ids An array of IDs of the homework submission comments to retrieve.
+     * @param {Array&lt;Number>} [ids] An array of IDs of the homework submission comments to retrieve.
      * @returns {Promise&lt;Array&lt;SubmissionComment>>}
      */
     getComments(ids) {
@@ -230,7 +230,7 @@ class HomeworkSubmission {
 
     /**
      * Get submission events that refer to this submission.
-     * @param {Array&lt;Number>} ids An array of IDs of submission events to retrieve.
+     * @param {Array&lt;Number>} [ids] An array of IDs of submission events to retrieve.
      * @returns {Promise&lt;Array&lt;SubmissionEvent>>}
      */
     getEvents(ids) {
@@ -254,7 +254,7 @@ class HomeworkSubmission {
 
     /**
      * Get homework submission versions for the homework submission.
-     * @param {Array&lt;Number>} ids An array of IDs of homework versions to retrieve.
+     * @param {Array&lt;Number>} [ids] An array of IDs of homework versions to retrieve.
      * @returns {Promise&lt;Array&lt;HomeworkSubmissionVersion>>}
      */
     getVersions(ids) {

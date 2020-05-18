@@ -723,12 +723,88 @@ class SMHWClient {
     /**
      * Get a homework submission by ID.
      * @param {Number} id The ID of the homework submission to retrieve.
-     * @returns {Promise<Homework>}
+     * @returns {Promise<HomeworkSubmission>}
      */
     getHomeworkSubmission(id) {
         return new Promise((resolve, reject) => {
             this.getHomeworkSubmissions([id]).then(homework_submissions => {
                 resolve(homework_submissions[0]);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get flexible task assignments by IDs.
+     * @param {Array<Number>} ids An array of flexible task IDs to retrieve.
+     * @returns {Promise<Array<FlexibleTask>>}
+     */
+    getFlexibleTasks(ids) {
+        if (ids && !Array.isArray(ids)) {
+            return this.getFlexibleTasks([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/flexible_tasks", {
+                query: {
+                    ids
+                }
+            }).then(response => {
+                if (response.flexible_tasks) {
+                    resolve(response.flexible_tasks.map(flexible_task => new FlexibleTask(this, flexible_task)));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get a flexible task assignment by ID.
+     * @param {Number} id The ID of the flexible task assignment to retrieve.
+     * @returns {Promise<FlexibleTask>}
+     */
+    getFlexibleTask(id) {
+        return new Promise((resolve, reject) => {
+            this.getFlexibleTasks([id]).then(flexible_tasks => {
+                resolve(flexible_tasks[0]);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get homework submissions by IDs.
+     * @param {Array<Number>}
+     * @returns {Promise<Array<FlexibleTaskSubmission>>}
+     */
+    getFlexibleTaskSubmissions(ids) {
+        if (ids && !Array.isArray(ids)) {
+            return this.getFlexibleTaskSubmissions([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/flexible_task_submissions", {
+                query: {
+                    ids
+                }
+            }).then(response => {
+                if (response.flexible_task_submissions) {
+                    resolve(response.flexible_task_submissions.map(flexible_task_submission => new FlexibleTaskSubmission(this, flexible_task_submission)));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get a flexible task submission by ID.
+     * @param {Number} id The ID of the flexible task submission to retrieve.
+     * @returns {Promise<FlexibleTaskSubmission>}
+     */
+    getFlexibleTaskSubmission(id) {
+        return new Promise((resolve, reject) => {
+            this.getFlexibleTaskSubmissions([id]).then(flexible_task_submissions => {
+                resolve(flexible_task_submissions[0]);
             }).catch(reject);
         });
     }

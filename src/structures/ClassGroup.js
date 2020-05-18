@@ -99,7 +99,7 @@ class ClassGroup {
 
     /**
      * Get students in the class group.
-     * @param {Array<Number>} ids An array of student IDs to retrieve.
+     * @param {Array<Number>} [ids] An array of student IDs to retrieve.
      * @returns {Promise<Array<Student>>}
      */
     getStudents(ids) {
@@ -108,7 +108,7 @@ class ClassGroup {
 
     /**
      * Get teachers in the class group.
-     * @param {Array<Number>} ids An array of teacher IDs to retrieve.
+     * @param {Array<Number>} [ids] An array of teacher IDs to retrieve.
      * @returns {Promise<Array<Employee>>}
      */
     getTeachers(ids) {

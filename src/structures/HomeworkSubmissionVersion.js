@@ -66,7 +66,7 @@ class HomeworkSubmissionVersion {
     
     /**
      * Get attachments attached to the homework submission version.
-     * @param {Array<Number>} ids An array of IDs of attachments to retrieve.
+     * @param {Array<Number>} [ids] An array of IDs of attachments to retrieve.
      * @return {Promise<Array<Attachment>>}
      */
     getAttachments(ids) {

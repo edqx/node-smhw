@@ -99,6 +99,8 @@ class SubmissionEvent {
     getSubmission() {
         if (this.submission.type === "homework_submission") {
             return this._client.getHomeworkSubmission(this.submission.id);
+        } else if (this.submission.type === "flexible_task_submission") {
+            return this._client.getFlexibleTaskSubmission(this.submission.id);
         }
     }
 }
