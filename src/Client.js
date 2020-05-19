@@ -12,6 +12,8 @@ const ClassYear = require("./structures/ClassYear.js");
 const ClientAuthentication = require("./structures/ClientAuthentication.js");
 const ClientEvent = require("./structures/ClientEvent.js");
 const Employee = require("./structures/Employee.js");
+const FlexibleTask = require("./structures/FlexibleTask.js");
+const FlexibleTaskSubmission = require("./structures/FlexibleTaskSubmission.js")
 const Homework = require("./structures/Homework.js");
 const HomeworkSubmission = require("./structures/HomeworkSubmission.js");
 const HomeworkSubmissionVersion = require("./structures/HomeworkSubmissionVersion.js");
@@ -77,8 +79,8 @@ class SMHWClient {
         this.school = null;
         
         /**
-         * The authorised user of the client.
-         * @type {User}
+         * Private information of the client user.
+         * @type {UserPrivateInformation}
          */
         this.user = null;
     }

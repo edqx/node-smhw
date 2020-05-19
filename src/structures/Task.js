@@ -158,7 +158,38 @@ class Task {
     getAssignment() {
         if (this.class_task_type === "Homework") {
             return this._client.getHomework(this.class_task_id);
+        } else if (this.class_task_type === "FlexibleTask") {
+            return this._client.getFlexibleTask(this.class_task_id);
         }
+    }
+
+    /**
+     * Fire an event to set the homework as viewed.
+     * @returns {Promise<Boolean>}
+     */
+    setViewed() {
+        return new Promise((resolve, reject) => {
+            this._client.make("POST", "/api/events", {
+                payload: {
+                    event: {
+                        created_at: null,
+                        event_type: this.setViewed,
+                        eventable_id: this.class_task_id,
+                        eventable_type: this.class_task_type,
+                        read: false,
+                        recipient_id: null,
+                        user_id: null,
+                        user_name: null
+                    }
+                }
+            }).then(response => {
+                if (response) {
+                    resolve(response);
+                } else {
+                    reject(response);
+                }
+            }).catch(resolve);
+        });
     }
 }
 
