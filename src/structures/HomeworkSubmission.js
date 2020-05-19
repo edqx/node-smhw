@@ -239,27 +239,21 @@ class HomeworkSubmission {
      * @returns {Promise<SubmissionComment>}
      */
     postComment(text) {
-        var type = "";
-
-        if (this.submission.type === "homework_submission") {
-            type = "HomeworkSubmission";
-        } else if (this.submission.type === "flexible_task_submission") {
-            type = "FlexibleTaskSubmission";
-        }
-
         return new Promise((resolve, reject) => {
             this._client.make("POST", "/api/submission_comments", {
                 payload: {
-                    assignment_id: null,
-                    assignment_type: null,
-                    created_at: null,
-                    submission_id: this.id,
-                    submission_type: this.submission_type,
-                    text,
-                    updated_at: null,
-                    user_id: null,
-                    user_name: null,
-                    user_type: null
+                    submission_comment: {
+						assignment_id: null,
+						assignment_type: null,
+						created_at: null,
+						submission_id: this.id,
+						submission_type: "HomeworkSubmission",
+						text,
+						updated_at: null,
+						user_id: null,
+						user_name: null,
+						user_type: null
+					}
                 }
             }).then(response => {
                 if (response.submission_comment) {

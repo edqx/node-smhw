@@ -121,19 +121,21 @@ class Task {
         return new Promise((resolve, reject) => {
             this._client.make("PUT", "/api/todos/" + this.id, {
                 payload: {
-                    class_group_name: this.class_group_name,
-                    class_task_description: this.class_task_description,
-                    class_task_id: this.class_task_id,
-                    class_task_title: this.class_task_title,
-                    class_task_type: this.class_task_type,
-                    completed: completed,
-                    due_on: new Date(this.due_on).toISOString(),
-                    issued_on: new Date(this.issued_on).toISOString(),
-                    subject: this.subject,
-                    submission_status: this.submission_status,
-                    teacher_name: this.teacher_name
+                    todo: {
+						class_group_name: this.class_group_name,
+						class_task_description: this.class_task_description,
+						class_task_id: this.class_task_id,
+						class_task_title: this.class_task_title,
+						class_task_type: this.class_task_type,
+						completed: completed,
+						due_on: new Date(this.due_on).toISOString(),
+						issued_on: new Date(this.issued_on).toISOString(),
+						subject: this.subject,
+						submission_status: this.submission_status,
+						teacher_name: this.teacher_name
+					}
                 }
-            }).then(() => {
+            }).then(task => {
                 this.completed = completed;
 
                 resolve(this);
