@@ -260,3 +260,5 @@ class FlexibleTask {
         });
     }
 }
+
+module.exports = FlexibleTask;
