@@ -1,3 +1,4 @@
+const SubmissionComment = require("./SubmissionComment.js");
 const WebLink = require("./WebLink.js");
 
 /**
