@@ -1,5 +1,8 @@
 # node-shmw
-[npm repository](http://npmjs.com/package/node-smhw)
+[npm repository](https://npmjs.com/package/node-smhw)
+[documentation](https://smhw.thechimp.store)
+
+This project was made for my SMHW client, [Ryujin](https://github.com/edqx/Ryujin-SMHW)
 
 ## Examples
 ### Getting all tasks for tomorrow
