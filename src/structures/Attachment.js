@@ -33,7 +33,7 @@ class Attachment {
          * The file size of the attachment in bytes.
          * @type {Number}
          */
-        this.file_size = repsonse.file_size;
+        this.file_size = response.file_size;
 
         /**
          * The URL of the attachment file.
