@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>structures/Task.js</title>
+    <title>structures/FlexibleTaskSubmission.js</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -47,7 +47,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">structures/Task.js</h1>
+    <h1 class="page-title">structures/FlexibleTaskSubmission.js</h1>
     
 
     
@@ -57,202 +57,245 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Represents a Task on SMHW.
+            <pre class="prettyprint source linenums"><code>const SubmissionComment = require("./SubmissionComment.js");
+const SubmissionEvent = require("./SubmissionEvent.js");
+
+/**
+ * Represents a flexible task submission on SMHW.
  */
-class Task {
+class FlexibleTaskSubmission {
     /**
-     * Instantiate a Task object.
-     * @param {Client} client The client that is instantiating the object.
+     * Instantiate a FlexibleTaskSubmission object.
+     * @param {Client} client The client that is instantiating this object.
      * @param {Object} response The data for the object.
      */
     constructor(client, response) {
         /**
-         * The client that instantiated this object.
+         * The client that instantiatied this client.
          * @type {Client}
          * @private
          */
         this._client = client;
 
         /**
-         * The name of the class group that the task is set for.
-         * @type {String}
+         * An array of IDs of comments posted on the flexible task submission.
+         * @type {Array&lt;Number>}
          */
-        this.class_group_name = response.class_group_name;
+        this.comment_ids = response.comment_ids;
 
         /**
-         * The description of the task.
-         * @type {String}
-         */
-        this.class_task_description = response.class_task_description;
-
-        /**
-         * The ID of the task.
-         * @type {Number}
-         */
-        this.class_task_id = response.class_task_id;
-
-        /**
-         * The title of the task.
-         * @type {String}
-         */
-        this.class_task_title = response.class_task_title;
-
-        /**
-         * The type of task.
-         * @type {String}
-         */
-        this.class_task_type = response.class_task_type;
-
-        /**
-         * Whether or not the task has been completed.
+         * Whether or not the flexible task submission is marked as complete.
          * @type {Boolean}
          */
         this.completed = response.completed;
 
         /**
-         * The description of the task.
+         * The timestamp of when the flexible task submission was created.
+         * @type {Number}
+         */
+        this.created_at = new Date(response.created_at).getTime();
+
+        /**
+         * The ID of the current flexible task submission version.
+         * @type {Number}
+         */
+        this.current_submission_version_id = response.current_submission_version_id;
+
+        /**
+         * An array of IDs of events relating to the flexible task submission.
+         * @type {Array&lt;Number>}
+         */
+        this.event_ids = response.event_ids;
+
+        /**
+         * The grade recieved for the flexible task submission.
          * @type {String}
          */
-        this.description = response.class_task_description;
+        this.grade = response.grade;
 
         /**
-         * The timestamp of when the task is due.
-         * @type {Number}
-         */
-        this.due_on = new Date(response.due_on).getTime();
-
-        /**
-         * Whether or not the task has assignments.
+         * Whether or not a grade has been given for the flexible task submission.
          * @type {Boolean}
          */
-        this.has_assignments = response.has_assignments;
+        this.grade_sent = response.grade_sent;
 
         /**
-         * The ID of the task.
+         * The comment made for the grade for the flexible task submission.
+         * @type {String}
+         */
+        this.grading_comment = response.grading_comment;
+
+        /**
+         * The timestamp of when the flexible task submission was handed in.
          * @type {Number}
+         */
+        this.handed_in_on = new Date(response.handed_in_on).getTime();
+
+        /**
+         * Whether or not the flexible task submission has unread comments.
+         * @type {Boolean}
+         */
+        this.has_unread_comments = response.has_unread_comments;
+
+        /**
+         * The ID of the flexible task that the flexible task submission is for.
+         * @type {Number}
+         */
+        this.flexible_task_id = response.flexible_task_id;
+
+        /**
+         * The ID of the flexible task submission.
+         * @type {String}
          */
         this.id = response.id;
 
         /**
-         * The timestamp of when the task was issued.
+         * Whether or not the flexible task submission has been marked.
+         * @type {Boolean}
+         */
+        this.marked = response.marked;
+
+        /**
+         * Whether or not the flexible task submission is overdue.
+         * @type {Boolean}
+         */
+        this.overdue = response.overdue;
+
+        /**
+         * The status of the flexible task submission.
+         * @type {String}
+         */
+        this.status = response.status;
+
+        /**
+         * The avatar URL of the student who the flexible task submission belongs to.
+         * @type {String}
+         */
+        this.student_avatar = response.student_avatar;
+
+        /**
+         * The ID of the student who the flexible task submission belongs to.
          * @type {Number}
          */
-        this.issued_on = new Date(response.issued_on).getTime();
+        this.student_id = response.student_id;
 
         /**
-         * The subject that the task was set for.
+         * The name of the student who the flexible task submission belongs to.
          * @type {String}
          */
-        this.subject = response.subject;
+        this.student_name = response.student_name;
 
         /**
-         * The submission status of the task for client.
-         * @type {String}
+         * The timestamp of when the flexible task submission was last updated.
+         * @type {Number}
          */
-        this.submission_status = response.submission_status;
+        this.updated_at = new Date(response.updated_at).getTime();
 
         /**
-         * The submission type of the task.
-         * @type {string}
+         * An array of IDs to each flexible task submission version.
+         * @type {Array&lt;Number>}
          */
-        this.submission_status = response.submission_status;
-
-        /**
-         * The name of the teacher who set the task.
-         * @type {String}
-         */
-        this.teacher_name = response.teacher_name;
-
-        /**
-         * The ID of the user who the task is for.
-         * @type {String}
-         */
-        this.user_id = response.user_id;
+        this.version_ids = response.version_ids;
     }
 
     /**
-     * Mark the task as completed or incomplete.
-     * @param {Boolean} completed Whether or not the task should be marked completed or incomplete.
-     * @returns {Promise&lt;Task>}
+     * Get comments made to the flexible task submission.
+     * @param {Array&lt;Number>} [ids] An array of IDs of the flexible task submission comments to retrieve.
+     * @returns {Promise&lt;Array&lt;SubmissionComment>>}
      */
-    setCompleted(completed) {
+    getComments(ids) {
+        // See the comment at HomeworkSubmission.getComments:ln.1 for information on this.
         return new Promise((resolve, reject) => {
-            this._client.make("PUT", "/api/todos/" + this.id, {
-                payload: {
-                    todo: {
-						class_group_name: this.class_group_name,
-						class_task_description: this.class_task_description,
-						class_task_id: this.class_task_id,
-						class_task_title: this.class_task_title,
-						class_task_type: this.class_task_type,
-						completed: completed,
-						due_on: new Date(this.due_on).toISOString(),
-						issued_on: new Date(this.issued_on).toISOString(),
-						subject: this.subject,
-						submission_status: this.submission_status,
-						teacher_name: this.teacher_name
-					}
-                }
-            }).then(task => {
-                this.completed = completed;
+            this._client.make("GET", "/api/flexible task_submissions/" + this.id).then(response => {
+                if (response.submission_comments) {
+                    if (ids) {
+                        var submission_comments = response.submission_comments.filter(submission_comment => ids.indexOf(submission_comment.id) !== -1);
 
-                resolve(this);
-            }).catch(reject);
+                        resolve(submission_comments.map(submission_comment => new SubmissionComment(this._client, submission_comment)));
+                    } else {
+                        resolve(response.submission_comments.map(submission_comment => new SubmissionComment(this._client, submission_comment)));
+                    }
+                } else {
+                    reject(response);
+                }
+            });
         });
     }
 
     /**
-     * Toggle the task as completed or incomplete.
-     * @returns {Promise&lt;Task>}
+     * Get submission events that refer to this submission.
+     * @param {Array&lt;Number>} [ids] An array of IDs of submission events to retrieve.
+     * @returns {Promise&lt;Array&lt;SubmissionEvent>>}
      */
-    toggleCompleted() {
-        return this.setCompleted(!this.completed);
-    }
-
-    /**
-     * Get the task assignment.
-     * @returns {Promise&lt;Homework|FlexibleTask>}
-     */
-    getAssignment() {
-        if (this.class_task_type === "Homework") {
-            return this._client.getHomework(this.class_task_id);
-        } else if (this.class_task_type === "FlexibleTask") {
-            return this._client.getFlexibleTask(this.class_task_id);
-        }
-    }
-
-    /**
-     * Fire an event to set the homework as viewed.
-     * @returns {Promise&lt;Boolean>}
-     */
-    setViewed() {
+    getEvents(ids) {
+        // See the comment at HomeworkSubmission.getComments:ln.1 for information on this.
         return new Promise((resolve, reject) => {
-            this._client.make("POST", "/api/events", {
-                payload: {
-                    event: {
-                        created_at: null,
-                        event_type: this.setViewed,
-                        eventable_id: this.class_task_id,
-                        eventable_type: this.class_task_type,
-                        read: false,
-                        recipient_id: null,
-                        user_id: null,
-                        user_name: null
+            this._client.make("GET", "/api/flexible task_submissions/" + this.id).then(response => {
+                if (response.submission_events) {
+                    if (ids) {
+                        var submission_events = response.submission_events.filter(submission_event => ids.indexOf(submission_event.id) !== -1);
+
+                        resolve(submission_events.map(submission_event => new SubmissionEvent(this._client, submission_event)));
+                    } else {
+                        resolve(response.submission_events.map(submission_event => new SubmissionEvent(this._client, submission_event)));
                     }
-                }
-            }).then(response => {
-                if (response) {
-                    resolve(response);
                 } else {
                     reject(response);
                 }
-            }).catch(resolve);
+            });
+        });
+    }
+
+    /**
+     * Get the flexible task that the flexible task submission is for.
+     * @returns {Promise&lt;FlexibleTask>}
+     */
+    getFlexibleTask() {
+        return this._client.getFlexibleTask(this.flexible_task_id);
+    }
+
+    /**
+     * Get the student who submitted the flexible task submission.
+     * @returns {Promise&lt;Student>}
+     */
+    getStudent() {
+        return this._client.getStudent(this.student_id);
+    }
+
+    /**
+     * Post a comment on the submission from the client user.
+     * @param {String} text The text of the comment.
+     * @returns {Promise&lt;SubmissionComment>}
+     */
+    postComment(text) {
+        return new Promise((resolve, reject) => {
+            this._client.make("POST", "/api/submission_comments", {
+                payload: {
+                    submission_comment: {
+						assignment_id: null,
+						assignment_type: null,
+						created_at: null,
+						submission_id: this.id,
+						submission_type: "FlexibleTaskSubmission",
+						text,
+						updated_at: null,
+						user_id: null,
+						user_name: null,
+						user_type: null
+					}
+                }
+            }).then(response => {
+                if (response.submission_comment) {
+                    resolve(new SubmissionComment(this._client, response.submission_comment));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
         });
     }
 }
 
-module.exports = Task;</code></pre>
+module.exports = FlexibleTaskSubmission;</code></pre>
         </article>
     </section>
 

@@ -203,7 +203,7 @@ class FlexibleTask {
     /**
      * Get attachments on the flexible task.
      * @param {Array<Number>} [ids] The IDs of the attachments to retrieve.
-     * @returns {Promise<Attachment>}
+     * @returns {Promise<Array<Attachment>>}
      */
     getAttachments(ids) {
         return this._client.getAttachments(ids || this.attachment_ids);

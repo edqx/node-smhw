@@ -201,7 +201,7 @@ class Homework {
     /**
      * Get attachments on the homework.
      * @param {Array<Number>} [ids] The IDs of the attachments to retrieve.
-     * @returns {Promise<Attachment>}
+     * @returns {Promise<Array<Attachment>>}
      */
     getAttachments(ids) {
         return this._client.getAttachments(ids || this.attachment_ids);

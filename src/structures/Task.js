@@ -153,7 +153,7 @@ class Task {
 
     /**
      * Get the task assignment.
-     * @returns {Promise<Homework>}
+     * @returns {Promise<Homework|FlexibleTask>}
      */
     getAssignment() {
         if (this.class_task_type === "Homework") {
