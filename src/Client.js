@@ -289,9 +289,13 @@ class SMHWClient {
 					filter: term,
 					limit: limit
 				}
-			}).then((response) => {
-				resolve(response.schools.map(school => new SchoolIncomplete(this, school)));
-			}).catch((err) => {
+			}).then(response => {
+				if (response.schools) {
+                    resolve(response.schools.map(school => new SchoolIncomplete(this, school)));
+                } else {
+                    reject(response);
+                }
+            }).catch((err) => {
 				reject(err);
 			});
 		});
