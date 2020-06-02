@@ -5,10 +5,25 @@ const zlib = require("zlib");
 const API_BASE_URL = "api.showmyhomework.co.uk";
 const SATCHELONE = "https://www.satchelone.com"
 
+/**
+ * @typedef RequestOptions
+ * @property {String} [host] The base hostname for the request.
+ * @property {Number} [port] The port of the request.
+ * @property {Object} [query] The querystring options for the request.
+ * @property {Object} [body] The post data body of the request.
+ * @property {Object} [headers] The headers for the request.
+ * @property {String} [referer] The referer path for the request.
+ * @property {Object} [payload] The JSON payload for the request.
+ */
+
+/**
+ * 
+ * @param {String} method The method for the request.
+ * @param {String} path The path of the request.
+ * @param {RequestOptions} options The options for the request.
+ */
 function makeRequest(method, path, options = {}) {
-	var _this = this;
-		
-	return new Promise(function (resolve, reject) {
+	return new Promise((resolve, reject) => {
 		const request_options = {};
 	
 		request_options.method = method;
@@ -53,13 +68,13 @@ function makeRequest(method, path, options = {}) {
 			request_options.headers["Content-Length"] = Buffer.byteLength(JSON.stringify(options.payload));
 		}
 		
-		const post_req = https.request(request_options, function (res) {
+		const post_req = https.request(request_options, res => {
 			let chunks = [];
 			
 			if (res.headers["content-encoding"] === "gzip") {
 				var unzip = res.pipe(zlib.createGunzip());
 				
-				unzip.on("data", function (data) {
+				unzip.on("data", data => {
 					chunks.push(data);
 				});
 
@@ -73,7 +88,7 @@ function makeRequest(method, path, options = {}) {
 					}
 				});
 			} else {
-				res.on("data", function (data) {
+				res.on("data", data => {
 					chunks.push(data);
 				});
 

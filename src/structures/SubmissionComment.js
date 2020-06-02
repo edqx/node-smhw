@@ -16,22 +16,16 @@ class SubmissionComment {
         this._client = client;
 
         /**
-         * The assignment information of the submission comment.
-         * @type {Object}
+         * @typedef AssignmentInformation
+         * @property {String} type The type of assignment.
+         * @property {Number} id the ID of the assignment.
          */
-        this.assignment = {
-            /**
-             * The type of assignment.
-             * @type {String}
-             */
-            type: response.assignment.type,
 
-            /**
-             * The ID of the assignment.
-             * @type {Number}
-             */
-            id: response.assignment.id
-        };
+        /**
+         * The assignment information of the submission comment.
+         * @type {AssignmentInformation}
+         */
+        this.assignment = response.assignment;
 
         /**
          * The ID of the assignment of the submission comment.
@@ -58,22 +52,21 @@ class SubmissionComment {
         this.origin = response.origin;
 
         /**
-         * The submission information of the submission comment.
-         * @type {Object} 
+         * The ID of the shared submission comment.
+         * @type {Number}
          */
-        this.submission = {
-            /**
-             * The type of submission.
-             * @type {String}
-             */
-            type: response.submission.type,
-            
-            /**
-             * The ID of the submission.
-             * @type {String}
-             */
-            id: response.submission.id
-        };
+        this.shared_submission_comment_id = response.shared_submission_comment_id;
+
+        /**
+         * @typedef SubmissionInformation
+         * @property {String} type The type of submission.
+         * @property {String} id The ID of the submission.
+         */
+        /**
+         * The submission information of the submission comment.
+         * @type {SubmissionInformation} 
+         */
+        this.submission = response.submission;
 
         /**
          * The content of the submission comment.
@@ -98,6 +91,18 @@ class SubmissionComment {
          * @type {String}
          */
         this.user_name = response.user_name;
+
+        /**
+         * The type of assignment that the comment was posted on.
+         * @type {String}
+         */
+        this.assignment_type = this.assignment.type;
+
+        /**
+         * The type of submission that the comment was posted on.
+         * @type {String}
+         */
+        this.submission_type = this.submission.type;
     }
 
     /**
@@ -106,30 +111,6 @@ class SubmissionComment {
      */
     getUser() {
         return this._client.getUser(this.user_id);
-    }
-
-    /**
-     * Get the assignment that the comment was posted to.
-     * @type {Homework}
-     */
-    getAssignment() {
-        if (this.assignment.type === "homework") {
-            return this._client.getHomework(this.assignment.id);
-        } else if (this.assignment.type === "flexible_task") {
-            return this._client.getFlexibleTask(this.assignment.id);
-        }
-    }
-
-    /**
-     * Get the submission that the comment was posted to.
-     * @type {HomeworkSubmission}
-     */
-    getAssignmentSubmission() {
-        if (this.submission.type === "homework_submission") {
-            return this._client.getHomeworkSubmission(this.submission.id);
-        } else if (this.submission.type === "flexible_task_submission") {
-            return this._client.getFlexibleTaskSubmission(this.submission.id);
-        }
     }
 }
 

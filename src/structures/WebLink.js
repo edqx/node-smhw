@@ -23,7 +23,7 @@ class WebLink {
          * The URL of the thumbnail for the web link.
          * @type {String}
          */
-        this.thumb_url = response.thumb_url;
+        this.thumbnail_url = response.thumb_url;
 
         /**
          * The title of the web link.

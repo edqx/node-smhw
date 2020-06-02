@@ -8,7 +8,6 @@ const CLIENTSECRET_WEB = "c8f7d8fcd0746adc50278bc89ed6f004402acbbf4335d3cb12d6ac
 
 const Attachment = require("./structures/Attachment.js");
 const ClassGroup = require("./structures/ClassGroup.js");
-const ClassYear = require("./structures/ClassYear.js");
 const ClientAuthentication = require("./structures/ClientAuthentication.js");
 const ClientEvent = require("./structures/ClientEvent.js");
 const Employee = require("./structures/Employee.js");
@@ -16,7 +15,11 @@ const FlexibleTask = require("./structures/FlexibleTask.js");
 const FlexibleTaskSubmission = require("./structures/FlexibleTaskSubmission.js")
 const Homework = require("./structures/Homework.js");
 const HomeworkSubmission = require("./structures/HomeworkSubmission.js");
-const HomeworkSubmissionVersion = require("./structures/HomeworkSubmissionVersion.js");
+const Quiz = require("./structures/Quiz.js");
+const QuizQuestion = require("./structures/QuizQuestion.js");
+const QuizSubmission = require("./structures/QuizSubmission.js");
+const QuizSubmissionComment = require("./structures/QuizSubmissionComment.js");
+const QuizSubmissionQuestion = require("./structures/QuizSubmissionQuestion.js");
 const School = require("./structures/School.js");
 const SchoolPrivateInformation = require("./structures/SchoolPrivateInformation.js");
 const StandardSubject = require("./structures/StandardSubject.js");
@@ -27,7 +30,6 @@ const SubmissionEvent = require("./structures/SubmissionEvent.js");
 const Task = require("./structures/Task.js");
 const User = require("./structures/User.js");
 const UserPrivateInformation = require("./structures/UserPrivateInformation.js");
-const WebLink = require("./structures/WebLink.js");
 
 /**
  * Represents access to SatchelOne's SMHW API.
@@ -101,12 +103,23 @@ class SMHWClient {
             }).catch(reject);
         });
     }
+    
+    /**
+     * @typedef RequestOptions
+     * @property {String} [host] The base hostname for the request.
+     * @property {Number} [port] The port of the request.
+     * @property {Object} [query] The querystring options for the request.
+     * @property {Object} [body] The post data body of the request.
+     * @property {Object} [headers] The headers for the request.
+     * @property {String} [referer] The referer path for the request.
+     * @property {Object} [payload] The JSON payload for the request.
+     */
 
     /**
      * Make a normal request or an authorised one if authentication is available.
      * @param {String} method The method of request to use.
      * @param {String} path The path of the resource to make a request to.
-     * @param {Object} options Options for the request.
+     * @param {RequestOptions} options Options for the request.
      * @returns {Promise<Object>}
      * @private
      * @ignore
@@ -240,7 +253,7 @@ class SMHWClient {
     }
 
     /**
-     * Get a school by ID.
+     * Get a school by its ID.
      * @param {Number} id The ID of the school to retrieve.
      * @returns {Promise<School>}
      */
@@ -341,7 +354,7 @@ class SMHWClient {
     }
 
     /**
-     * Get a client event by ID.
+     * Get a client event by its ID.
      * @param {Number} id The ID of the event to retrieve.
      * @returns {Promise<ClientEvent>}
      */
@@ -354,7 +367,7 @@ class SMHWClient {
     }
 
     /**
-     * Get submission events by IDs.
+     * Get submission events by their IDs.
      * @param {Array<Number>} ids An array of submission event IDs to retrieve.
      * @returns {Promise<Array<SubmissionEvents>>}
      */
@@ -379,7 +392,7 @@ class SMHWClient {
     }
 
     /**
-     * Get a submission event by ID.
+     * Get a submission event by its ID.
      * @param {Number} id The ID of the submission event to retrieve.
      * @returns {Promise<SubmissionEvent>}
      */
@@ -419,7 +432,7 @@ class SMHWClient {
     }
 
     /**
-     * Get a task by ID.
+     * Get a task by its ID.
      * @param {Number} id The ID of the task to retrieve.
      * @returns {Promise<Task>}
      */
@@ -432,7 +445,7 @@ class SMHWClient {
     }
 
     /**
-     * Get students by IDs.
+     * Get students by their IDs.
      * @param {Array<Number>} ids An array of Student IDs to retrieve.
      * @returns {Promise<Array<Student>>}
      */
@@ -457,7 +470,7 @@ class SMHWClient {
     }
 
     /**
-     * Get a student by ID.
+     * Get a student by its ID.
      * @param {Number} id The ID of the student to retrieve.
      * @returns {Promise<Student>}
      */
@@ -470,7 +483,7 @@ class SMHWClient {
     }
 
     /**
-     * Get employees by IDs.
+     * Get employees by their IDs.
      * @param {Array<Number>} ids An array of employee IDs to retrieve.
      * @returns {Promise<Array<Employee>>}
      */
@@ -495,7 +508,7 @@ class SMHWClient {
     }
 
     /**
-     * Get an employee by ID.
+     * Get an employee by its ID.
      * @param {Number} id The ID of the employee to retrieve.
      * @returns {Promise<Employee>}
      */
@@ -508,7 +521,7 @@ class SMHWClient {
     }
 
     /**
-     * Get users by IDs.
+     * Get users by their IDs.
      * @param {Array<Number>} ids An array of user IDs to retrieve.
      * @returns {Promise<Array<User>>}
      */
@@ -533,7 +546,7 @@ class SMHWClient {
     }
 
     /**
-     * Get a user by ID.
+     * Get a user by its ID.
      * @param {Number} id The ID of the user to retrieve.
      * @returns {Promise<User>}
      */
@@ -546,7 +559,7 @@ class SMHWClient {
     }
 
     /**
-     * Get class groups by IDs.
+     * Get class groups by their IDs.
      * @param {Array<Number>} ids An array of class group IDs to retrieve.
      * @returns {Promise<Array<ClassGroup>>}
      */
@@ -571,7 +584,7 @@ class SMHWClient {
     }
 
     /**
-     * Get a class group by ID.
+     * Get a class group by its ID.
      * @param {Number} id The ID of the class group to retrieve.
      * @returns {Promise<ClassGroup>}
      */
@@ -584,7 +597,7 @@ class SMHWClient {
     }
 
     /**
-     * Get submission commenst by IDs.
+     * Get submission commenst by their IDs.
      * @param {Array<Number>} ids An array of submission comment IDs to retrieve.
      * @returns {Promise<Array<SubmissionComment>>}
      */
@@ -609,7 +622,7 @@ class SMHWClient {
     }
 
     /**
-     * Get a submission comment by ID.
+     * Get a submission comment by its ID.
      * @param {Number} id The ID of the submission comment to retrieve.
      * @returns {Promise<SubmissionComment>}
      */
@@ -622,7 +635,7 @@ class SMHWClient {
     }
 
     /**
-     * Get attachments by IDs.
+     * Get attachments by their IDs.
      * @param {Array<Number>} ids An array of attachment IDs to retrieve.
      * @returns {Promise<Array<Attachment>>}
      */
@@ -647,7 +660,7 @@ class SMHWClient {
     }
 
     /**
-     * Get an attachment by ID.
+     * Get an attachment by its ID.
      * @param {Number} id The ID of the attachment to retrieve.
      * @returns {Promise<Attachment>}
      */
@@ -660,7 +673,7 @@ class SMHWClient {
     }
 
     /**
-     * Get homework assignments by IDs.
+     * Get homework assignments by their IDs.
      * @param {Array<Number>} ids An array of homework IDs to retrieve.
      * @returns {Promise<Array<Homework>>}
      */
@@ -685,7 +698,7 @@ class SMHWClient {
     }
 
     /**
-     * Get a homework assignment by ID.
+     * Get a homework assignment by its ID.
      * @param {Number} id The ID of the homework assignment to retrieve.
      * @returns {Promise<Homework>}
      */
@@ -698,7 +711,7 @@ class SMHWClient {
     }
 
     /**
-     * Get homework submissions by IDs.
+     * Get homework submissions by their IDs.
      * @param {Array<Number>}
      * @returns {Promise<Array<HomeworkSubmission>>}
      */
@@ -723,7 +736,7 @@ class SMHWClient {
     }
 
     /**
-     * Get a homework submission by ID.
+     * Get a homework submission by its ID.
      * @param {Number} id The ID of the homework submission to retrieve.
      * @returns {Promise<HomeworkSubmission>}
      */
@@ -736,7 +749,7 @@ class SMHWClient {
     }
 
     /**
-     * Get flexible task assignments by IDs.
+     * Get flexible task assignments by their IDs.
      * @param {Array<Number>} ids An array of flexible task IDs to retrieve.
      * @returns {Promise<Array<FlexibleTask>>}
      */
@@ -761,7 +774,7 @@ class SMHWClient {
     }
 
     /**
-     * Get a flexible task assignment by ID.
+     * Get a flexible task assignment by its ID.
      * @param {Number} id The ID of the flexible task assignment to retrieve.
      * @returns {Promise<FlexibleTask>}
      */
@@ -774,7 +787,7 @@ class SMHWClient {
     }
 
     /**
-     * Get homework submissions by IDs.
+     * Get homework submissions by their IDs.
      * @param {Array<Number>}
      * @returns {Promise<Array<FlexibleTaskSubmission>>}
      */
@@ -799,7 +812,7 @@ class SMHWClient {
     }
 
     /**
-     * Get a flexible task submission by ID.
+     * Get a flexible task submission by its ID.
      * @param {Number} id The ID of the flexible task submission to retrieve.
      * @returns {Promise<FlexibleTaskSubmission>}
      */
@@ -807,6 +820,158 @@ class SMHWClient {
         return new Promise((resolve, reject) => {
             this.getFlexibleTaskSubmissions([id]).then(flexible_task_submissions => {
                 resolve(flexible_task_submissions[0]);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get quiz assignments by their IDs.
+     * @param {Array<Number>} ids An array of quiz IDs to retrieve.
+     * @returns {Promise<Array<Quiz>>}
+     */
+    getQuizzes(ids) {
+        if (ids && !Array.isArray(ids)) {
+            return this.getQuizzes([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/quizzes", {
+                query: {
+                    ids
+                }
+            }).then(response => {
+                if (response.quizzes) {
+                    resolve(response.quizzes.map(quiz => new Quiz(this, quiz)));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get a quiz assignment by its ID.
+     * @param {Number} id The ID of the quiz assignment to retrieve.
+     * @returns {Promise<Quiz>}
+     */
+    getQuiz(id) {
+        return new Promise((resolve, reject) => {
+            this.getQuizzes([id]).then(quizzes => {
+                resolve(quizzes[0]);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get quiz questions by their IDs.
+     * @param {Array<Number>} ids An array of quiz question IDs to retrieve.
+     * @returns {Promise<Array<QuizQuestion>>}
+     */
+    getQuizQuestions(ids) {
+        if (ids && !Array.isArray(ids)) {
+            return this.getQuizQuestions([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/quiz_questions", {
+                query: {
+                    ids
+                }
+            }).then(response => {
+                if (response.quiz_questions) {
+                    resolve(response.quiz_questions.map(quiz_question => new QuizQuestion(this, quiz_question)));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+    
+    /**
+     * Get a quiz question by its ID.
+     * @param {Number} id The ID of the quiz question to retrieve.
+     * @returns {Promise<QuizQuestion>}
+     */
+    getQuizQuestion(id) {
+        return new Promise((resolve, reject) => {
+            this.getQuizQuestions([id]).then(quiz_questions => {
+                resolve(quiz_questions[0]);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get an array of quiz submissions by their IDs.
+     * @param {Array<Number>} ids An array of quiz submission IDs to retrieve.
+     * @returns {Promise<Array<QuizSubmission>>}
+     */
+    getQuizSubmissions(ids) {
+        if (ids && !Array.isArray(ids)) {
+            return this.getQuizSubmissions([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/quiz_submissions", {
+                query: {
+                    ids
+                }
+            }).then(response => {
+                if (response.quiz_submissions) {
+                    resolve(response.quiz_submissions.map(quiz_submission => new QuizSubmission(this, quiz_submission)));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get a quiz submission by its ID.
+     * @param {Number} id The ID of the quiz submission to retrieve.
+     * @returns {Promise<QuizSubmission>}
+     */
+    getQuizSubmission(id) {
+        return new Promise((resolve, reject) => {
+            this.getQuizSubmissions([id]).then(quiz_submissions => {
+                resolve(quiz_submissions[0]);
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get an array of quiz submission questions by their IDs.
+     * @param {Array<Number>} ids An array of quiz submission question IDs to retrieve.
+     * @returns {Promise<Array<QuizSubmissionQuestion>>}
+     */
+    getQuizSubmissionQuestions(ids) {
+        if (ids && !Array.isArray(ids)) {
+            return this.getQuizSubmissionQuestions([ids]);
+        }
+
+        return new Promise((resolve, reject) => {
+            this.make("GET", "/api/quiz_submission_questions", {
+                query: {
+                    ids
+                }
+            }).then(response => {
+                if (response.quiz_submission_questions) {
+                    resolve(response.quiz_submission_questions.map(quiz_submission_question => new QuizSubmissionQuestion(this, quiz_submission_question)));
+                } else {
+                    reject(response);
+                }
+            }).catch(reject);
+        });
+    }
+
+    /**
+     * Get a quiz submission question by its ID.
+     * @param {Number} id The ID of the quiz submission question to retrieve.
+     * @returns {Promise<QuizSubmissionQuestion>}
+     */
+    getQuizSubmissionQuestion(id) {
+        return new Promise((resolve, reject) => {
+            this.getQuizSubmissionQuestion([id]).then(quiz_submission_questions => {
+                resolve(quiz_submission_questions[0]);
             }).catch(reject);
         });
     }
