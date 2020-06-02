@@ -120,7 +120,7 @@ class QuizSubmissionQuestion {
                             correct: this.attempt2.correct
                         } : null,
                         attempt3: this.attempt3 ? {
-                            start: sthis.attempt3.start,
+                            start: this.attempt3.start,
                             answer: this.attempt3.answer,
                             correct: this.attempt3.correct
                         } : null,
@@ -175,7 +175,7 @@ class QuizSubmissionQuestion {
                             correct: this.attempt2.correct
                         } : null,
                         attempt3: this.attempt3 ? {
-                            start: sthis.attempt3.start,
+                            start: this.attempt3.start,
                             answer: this.attempt3.answer,
                             correct: this.attempt3.correct
                         } : null,
