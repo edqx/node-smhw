@@ -99,58 +99,23 @@ class SchoolPrivateInformation {
         this.expires_on = new Date(response.expires_on).getTime();
 
         /**
-         * Whether certain features are enabled or disabled for the school.
-         * @type {Object}
+         * @typedef SchoolPrivateFeatures
+         * @property {Boolean} assessment_app_enabled Whether or not the school has the assessment app feature enabled.
+         * @property {Boolean} assessment_enabled_for_teachers Whether or not the school's assessments feature is enabled for teachers.
+         * @property {Boolean} detentions_enabled Whether or not the school has the detentions app feature enabled.
+         * @property {Boolean} sso_enabled_for_employees
+         * @property {Boolean} sso_enabled_for_students
+         * @property {Boolean} timetable_promo_disabled
+         * @property {Boolean} xod_enabled
+         * @property {Boolean} xod_scope_enabled_photos
+         * @property {Boolean} xod_scope_enabled_students
          */
-        this.features = {
-            /**
-             * Whether or not the school has the assessment app feature enabled.
-             * @type {Boolean}
-             */
-            assessment_app_enabled: response.features.assessment_app_enabled,
 
-            /**
-             * Whether or not the school has the assessments for teachers feature enabled.
-             * @type {Boolean}
-             */
-            assessment_enabled_for_teachers: response.features.assessment_enabled_for_teachers,
-
-            /**
-             * Whether or not the school has the detentions app feature enabled.
-             * @type {Boolean}
-             */
-            detentions_enabled: response.features.detentions_enabled,
-
-            /**
-             * @type {Boolean}
-             */
-            sso_enabled_for_employees: response.features.sso_enabled_for_employees,
-
-            /**
-             * @type {Boolean}
-             */
-            sso_enabled_for_students: response.features.sso_enabled_for_students,
-
-            /**
-             * @type {Boolean}
-             */
-            timetable_promo_disabled: response.features.timetable_promo_disabled,
-
-            /**
-             * @type {Boolean}
-             */
-            xod_enabled: response.features.xod_enabled,
-
-            /**
-             * @type {Boolean}
-             */
-            xod_scope_enabled_photos: response.features.xod_scope_enabled_photos,
-
-            /**
-             * @type {Boolean}
-             */
-            xod_scope_enabled_students: response.features.xod_scope_enabled_students
-        };
+        /**
+         * Whether certain features are enabled or disabled for the school.
+         * @type {SchoolPrivateFeatures}
+         */
+        this.features = response.features;
 
         /**
          * Whether or not the school has shared files in home page zones.
@@ -171,16 +136,15 @@ class SchoolPrivateInformation {
         this.kudos_settings_id = response.kudos_settings_id;
 
         /**
-         * Links to school API resources.
-         * @type {Object}
+         * @typedef SchoolPrivateLinks
+         * @property {String} marking_schemes A link to marking schemes that the school uses.
          */
-        this.links = {
-            /**
-             * A link to marking schemes that the school uses.
-             * @type {String}
-             */
-            marking_schemes: response.links.marking_schemes
-        };
+
+        /**
+         * Links to private school API resources.
+         * @type {SchoolPrivateLinks}
+         */
+        this.links = response.links;
 
         /**
          * Whether or not the school has live chat enabled.

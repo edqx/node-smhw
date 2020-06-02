@@ -101,22 +101,16 @@ class SubmissionEvent {
         this.id = response.id;
 
         /**
-         * The submission information of the submission event.
-         * @type {Object}
+         * @typedef SubmissionInformation
+         * @property {String} type The type of submission.
+         * @property {String} id The ID of the submission.
          */
-        this.submission = {
-            /**
-             * The type of submission.
-             * @type {String}
-             */
-            type: response.submission.type,
 
-            /**
-             * The ID of the submission.
-             * @type {String}
-             */
-            id: response.submission.id
-        };
+        /**
+         * The submission information of the submission event.
+         * @type {SubmissionInformation}
+         */
+        this.submission = response.submission;
 
         /**
          * The ID of the submission.
@@ -160,6 +154,8 @@ class SubmissionEvent {
             return this._client.getHomeworkSubmission(this.submission.id);
         } else if (this.submission.type === "flexible_task_submission") {
             return this._client.getFlexibleTaskSubmission(this.submission.id);
+        } else if (this.submission.type === "quiz_submission") {
+            return this._client.getQuizSubmission(this.submission.id);
         }
     }
 }

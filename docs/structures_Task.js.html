@@ -219,6 +219,8 @@ class Task {
             return this._client.getHomework(this.class_task_id);
         } else if (this.class_task_type === "FlexibleTask") {
             return this._client.getFlexibleTask(this.class_task_id);
+        } else if (this.class_task_type === "Quiz") {
+            return this._client.getQuiz(this.class_task_id);
         }
     }
 
