@@ -234,70 +234,23 @@ class School {
         this.latitude = response.latitude;
 
         /**
-         * Links for API resources for the school.
-         * @type {Object}
+         * @typedef SchoolResourceLinks
+         * @property {String} class_groups A link to an array of school class groups.
+         * @property {String} class_years A link to an array of school class years.
+         * @property {String} detention_templates A link to an array of school detention templates.
+         * @property {String} employees A link to an array of school employees.
+         * @property {String} kudos_reasons
+         * @property {String} parents A link to an array of school parents.
+         * @property {String} school_kudos_info
+         * @property {String} students A link to an array of school students.
+         * @property {String} subjects A link to an array of school subjects;
          */
-        this.links = {
-            /**
-             * A link to the school's class groups.
-             * @type {String}
-             */
-            class_groups: response.links.class_groups,
-            
-            /**
-             * A link to the school's class years.
-             * @type {String}
-             */
-            class_years: response.links.class_years,
-            
-            /**
-             * A link to the school's detention templates.
-             * @type {String}
-             */
-            detention_templates: response.links.detention_templates,
-            
-            /**
-             * A link to the school's employees.
-             * @type {String}
-             */
-            employees: response.links.employees,
-            
-            /**
-             * A link to the school's house_groups.
-             * @type {String}
-             */
-            house_groups: response.links.house_groups,
-            
-            /**
-             * A link to the school's kudos reasons. (?).
-             * @type {String}
-             */
-            kudos_reasons: response.links.kudos_reasons,
-            
-            /**
-             * A link to the school's student's parents.
-             * @type {String}
-             */
-            parents: response.links.parents,
-            
-            /**
-             * A link to the school's kudos information. (?).
-             * @type {String}
-             */
-            school_kudos_info: response.links.school_kudos_info,
-            
-            /**
-             * A link to the school's students.
-             * @type {String}
-             */
-            students: response.links.students,
-            
-            /**
-             * A link to the school's subjects.
-             * @type {String}
-             */
-            subjects: response.links.subjects
-        };
+
+        /**
+         * Links for API resources for the school.
+         * @type {SchoolResourceLinks}
+         */
+        this.links = response.links;
 
         /**
          * The name of the school's logo.
@@ -373,33 +326,18 @@ class School {
         this.praise_points = response.praise_points;
 
         /**
-         * Whether or not the school has certain premium features.
-         * @type {Object}
+         * @typedef SchoolPremiumFeatures
+         * @property {Boolean} custom_theme_enabled Whether or not the school has a custom theme enabled.
+         * @property {Boolean} extended_notice_board Whether or not the school has an extended notice board.
+         * @property {Boolean} welfare_notes Whether or not the school has welfare notes.
+         * @property {Boolean} white_label_enabled
          */
-        this.premium_features = {
-            /**
-             * Whether or not the school has a custom theme.
-             * @type {Boolean}
-             */
-            custom_theme_enabled: response.premium_features.custom_theme_enabled,
 
-            /**
-             * Whether or not the school has an extended notice board.
-             * @type {Boolean}
-             */
-            extended_notice_board: response.extended_notice_board,
-
-            /**
-             * Whether or not the school has welfare notes.
-             * @type {Boolean}
-             */
-            welfare_notes: response.welfare_notes,
-
-            /**
-             * @type {Boolean}
-             */
-            white_label_enabled: response.white_label_enabled
-        };
+        /**
+         * Whether or not the school has certain premium features.
+         * @type {SchoolPremiumFeatures}
+         */
+        this.premium_features = response.premium_features;
 
         /**
          * The name of the school's prospectus.

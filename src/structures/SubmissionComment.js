@@ -62,6 +62,7 @@ class SubmissionComment {
          * @property {String} type The type of submission.
          * @property {String} id The ID of the submission.
          */
+        
         /**
          * The submission information of the submission comment.
          * @type {SubmissionInformation} 
