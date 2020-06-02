@@ -21,6 +21,7 @@ const QuizSubmission = require("./structures/QuizSubmission.js");
 const QuizSubmissionComment = require("./structures/QuizSubmissionComment.js");
 const QuizSubmissionQuestion = require("./structures/QuizSubmissionQuestion.js");
 const School = require("./structures/School.js");
+const SchoolIncomplete = require("./structures/Schoolincomplete.js");
 const SchoolPrivateInformation = require("./structures/SchoolPrivateInformation.js");
 const StandardSubject = require("./structures/StandardSubject.js");
 const Student = require("./structures/Student.js");
@@ -138,12 +139,36 @@ class SMHWClient {
 
     /**
      * Log in to a SMHW account for an access token to make authorised requests to SMHW.
-     * @param {Number} school_id The ID of the school of the account to log in to.
+     * @param {Number|Object} school_id The ID of the school of the account to log in to.
      * @param {String} username The username of the account to log in to.
      * @param {String} password The password of the account to log in to. (Not stored)
      * @returns {Promise}
      */
     login(school_id, username, password) {
+        if (typeof school_id === "object") {
+            return new Promise((resolve, reject) => {
+                this._auth = new ClientAuthentication(school_id);
+    
+                this.make("GET", "/api/students/" + this._auth.user_id, {
+                    query: {
+                        include: "user_private_info,school"
+                    }
+                }).then(response => {
+                    this.student = new Student(this, response.student);
+                    this.school = new School(this, response.schools[0]);
+                    this.user = new UserPrivateInformation(this, response.user_private_infos[0]);
+
+                    resolve(true);
+
+                    if (this.options.keep_heartbeat) {
+                        this._heartbeat = setInterval(_ => {
+                            this.beat();
+                        });
+                    }
+                }).catch(reject);
+            });
+        }
+
         return new Promise((resolve, reject) => {
             this.make("POST", "/oauth/token", {
                 body: {
@@ -253,6 +278,26 @@ class SMHWClient {
     }
 
     /**
+     * Search for schools by their name.
+     * @param {String} term The term to search schools by.
+     * @param {Number} [limit] The limit of schools to return.
+     */
+    searchSchools(term, limit = 20) {
+		return new Promise((resolve, reject) => {
+			this.make("GET", "/api/public/school_search", {
+				query: {
+					filter: term,
+					limit: limit
+				}
+			}).then((response) => {
+				resolve(response.schools.map(school => new SchoolIncomplete(this, school)));
+			}).catch((err) => {
+				reject(err);
+			});
+		});
+	}
+
+    /**
      * Get a school by its ID.
      * @param {Number} id The ID of the school to retrieve.
      * @returns {Promise<School>}
@@ -269,6 +314,11 @@ class SMHWClient {
         });
     }
 
+    /**
+     * Get a school's private information.
+     * @param {Number} id The ID of the school's private information to retrieve.
+     * @returns {Promise<SchoolPrivateInformation>}
+     */
     getSchoolPrivateInformation(id) {
         return new Promise((resolve, reject) => {
             this.make("GET", "/api/school_private_infos/" + id).then(response => {

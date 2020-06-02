@@ -13,7 +13,7 @@ client.login(process.env.SCHOOL_ID, process.env.EMAIL, process.env.PASSWORD).the
     client.getQuiz(process.env.QUIZ_ID).then(quiz => {
         quiz.getSubmission().then(quiz_submission => {
             quiz_submission.getQuestions().then(async questions => {
-				const correct = 0;
+				var correct = 0;
 				
                 for await (let i of {
                     [Symbol.asyncIterator]() {
@@ -51,9 +51,9 @@ client.login(process.env.SCHOOL_ID, process.env.EMAIL, process.env.PASSWORD).the
                                                             value: a_question.correct_answer,
                                                             done: false
                                                         });
-                                                    }, getRandomFloat(2500, 5000));
+                                                    }, getRandomFloat(100, 150));
                                                 }).catch(console.log);
-                                            }, getRandomFloat(5000, 10000));
+                                            }, getRandomFloat(500, 1000));
                                         }).catch(e => {
                                             resolve({
                                                 value: "",
