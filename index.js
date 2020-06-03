@@ -18,7 +18,7 @@ module.exports = {
     QuizSubmissionQuestion: require("./src/structures/QuizSubmissionQuestion.js"),
     QuizSubmissionQuestionAttempt: require("./src/structures/QuizSubmissionQuestionAttempt.js"),
     School: require("./src/structures/School.js"),
-    SchoolIncomplete: require("./src/structures/Schoolincomplete.js"),
+    SchoolIncomplete: require("./src/structures/SchoolIncomplete.js"),
     SchoolPrivateInformation: require("./src/structures/SchoolPrivateInformation.js"),
     StandardSubject: require("./src/structures/StandardSubject.js"),
     Student: require("./src/structures/Student.js"),
