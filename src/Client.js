@@ -336,9 +336,16 @@ class SMHWClient {
     }
 
     /**
+     * @typedef GetOwnEventOptions
+     * @property {Number} [limit] The limit of events to retrieve.
+     * @property {Number} [offset] The offset to apply to the events.
+     * @property {Number} [recipient_id] The ID of the recipient of the events to retrieve.
+     * @property {Boolean} [visible]
+     */
+    /**
      * Get client events fired for the client user.
-     * @param {Object} options Event request options.
-     * @param {Array<Number>} ids An array of event IDs to retrieve.
+     * @param {Object} [options] Event request options.
+     * @param {Array<Number>} [ids] An array of event IDs to retrieve.
      * @returns {Promise<Array<ClientEvent>>}
      */
     getOwnEvents(options, ids) {
@@ -356,7 +363,7 @@ class SMHWClient {
                     limit: options.limit || 21,
                     offset: options.offset || 0,
                     recipient_id: options.recipient_id || this.user.id,
-                    visible: typeof options.visible === "undefined" ? true : options.visible
+                    visible: options.visible ?? true
                 }
             }).then(response => {
                 if (response.events) {
