@@ -13,7 +13,7 @@ const client = new ShowMyHomework.Client();
 
 client.searchSchools("Elk Valley Elementary").then(school => {
 	client.login(school[0].id, "biglad1@biglads.com", "password").then(() => {
-		client.getTodo().then(tasks => {
+		client.getTasks().then(tasks => {
 			var tasks_for_tomorrow = tasks.filter(task => {
 				var today = new Date();
 				var tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);

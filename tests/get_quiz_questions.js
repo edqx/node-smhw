@@ -7,7 +7,7 @@ function getRandomFloat(min, max) {
 return Math.random() * (max - min) + min;
 }       
 
-const current_attempt = 3;
+const current_attempt = 2;
 const correct_chances = [0, 0.65, 0.90, 1.00];
 client.login(process.env.SCHOOL_ID, process.env.EMAIL, process.env.PASSWORD).then(() => {
     client.getQuiz(process.env.QUIZ_ID).then(quiz => {
@@ -23,7 +23,7 @@ client.login(process.env.SCHOOL_ID, process.env.EMAIL, process.env.PASSWORD).the
                                 return new Promise((resolve, reject) => {
                                     if (this.index < questions.length) {
                                         questions[this.index++].beginAnswer(current_attempt).then(b_question => {
-                                            console.log("(" + (this.index + 1) + "/" + questions.length + ") \"" + b_question.description + "\"");
+                                            console.log("(" + this.index + "/" + questions.length + ") \"" + b_question.description + "\"");
 											const chars = "abcdefghijklmnop";
 											console.log(b_question.options.map((q, i) => "  " + chars[i] + ". " + q + (q === b_question.correct_answer ? " (*)" : "")).join("\n"));
 
@@ -51,9 +51,9 @@ client.login(process.env.SCHOOL_ID, process.env.EMAIL, process.env.PASSWORD).the
                                                             value: a_question.correct_answer,
                                                             done: false
                                                         });
-                                                    }, getRandomFloat(100, 150));
+                                                    }, getRandomFloat(500, 750));
                                                 }).catch(console.log);
-                                            }, getRandomFloat(500, 1000));
+                                            }, getRandomFloat(3000, 5000));
                                         }).catch(e => {
                                             resolve({
                                                 value: "",
