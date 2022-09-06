@@ -651,7 +651,7 @@ class SMHWClient {
      */
     getClassGroup(id) {
         return new Promise((resolve, reject) => {
-            this.getClassgroups([id]).then(class_groups => {
+            this.getClassGroups([id]).then(class_groups => {
                 resolve(class_groups[0]);
             }).catch(reject);
         });
