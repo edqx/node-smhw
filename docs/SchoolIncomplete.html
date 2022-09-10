@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>structures/QuizSubmission.js</title>
+    <title>SchoolIncomplete</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -47,150 +47,483 @@
 
 <div id="main">
     
-    <h1 class="page-title">structures/QuizSubmission.js</h1>
+    <h1 class="page-title">SchoolIncomplete</h1>
     
 
     
 
 
 
+
+<section>
+
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>const Submission = require("./Submission.js");
-
-const QuizSubmissionComment = require("./QuizSubmissionComment.js");
-const QuizSubmissionQuestion = require("./QuizSubmissionQuestion.js");
-
-/**
- * Represents a quiz submission on SMHW.
- * @extends {Submission}
- */
-class QuizSubmission extends Submission {
-    /**
-     * Instantiate a QuizSubmission object.
-     * @param {Client} client The client that is instantiating this object.
-     * @param {Object} response The data for the object.
-     */
-    constructor(client, response) {
-        super(client, response);
-
-        /**
-         * An array of submission question IDs.
-         * @type {Array&lt;Number>}
-         */
-        this.question_ids = response.question_ids;
-
-        /**
-         * The ID of the quiz that the quiz submission is for.
-         * @type {Number}
-         */
-        this.quiz_id = response.quiz_id;
-
-        /**
-         * The type of assignment that the submission is for.
-         * @type {String}
-         */
-        this.assignment_type = "quiz";
-
-        /**
-         * The type of submission.
-         * @type {String}
-         */
-        this.submission_type = "quiz_submission";
-    }
-
-    /**
-     * Get the quiz that the quiz submission is for.
-     * @returns {Promise&lt;Quiz>}
-     */
-    getQuiz() {
-        return this._client.getQuiz(this.quiz_id);
-    }
-
-    /**
-     * Get the questions for the quiz submission.
-     * @param {Array&lt;Number>} [ids] An array of IDs of quiz submission questions to retrieve.
-     * @returns {Promise&lt;Array&lt;QuizSubmissionQuestion>>}
-     */
-    getQuestions(ids) {
-        return new Promise((resolve, reject) => {
-            this._client.make("GET", "/api/quiz_submission_questions", {
-                query: {
-                    ids: this.question_ids
-                }
-            }).then(response => {
-                if (response.quiz_submission_questions) {
-                    resolve(response.quiz_submission_questions.map(quiz_submission_question => new QuizSubmissionQuestion(this._client, quiz_submission_question)));
-                } else {
-                    reject(response);
-                }
-            }).catch(reject);
-        });
-    }
+        
+        <h2>
+        
+        SchoolIncomplete
+        
+        </h2>
+        
+        
+            <div class="class-description"><p>Represents an incomplete school from searching on SMHW.</p></div>
+            <hr/>
+        
     
-    /**
-     * Get an array comments made to the submission.
-     * @param {Array&lt;Number>} [ids] An array of IDs of the submission comments to retrieve.
-     * @returns {Promise&lt;Array&lt;QuizSubmissionComment>>}
-     */
-    getComments(ids) {
-        // Uses a "hack" here to get comments of another student's submissions,
-        // as /api/submission_comments gives a 404 if none of the requested
-        // IDs belong to a submission that belongs to the client user.
-        return new Promise((resolve, reject) => {
-            this._client.make("GET", "/api/quiz_submissions/" + this.id).then(response => {
-                if (response.submission_comments) {
-                    if (ids) {
-                        var submission_comments = response.submission_comments.filter(submission_comment => ids.indexOf(submission_comment.id) !== -1);
+</header>
 
-                        resolve(submission_comments.map(submission_comment => new QuizSubmissionComment(this._client, submission_comment)));
-                    } else {
-                        resolve(response.submission_comments.map(submission_comment => new QuizSubmissionComment(this._client, submission_comment)));
-                    }
-                } else {
-                    reject(response);
-                }
-            }).catch(reject);
-        });
-    }
 
-    /**
-     * Post a comment on the submission from the client user.
-     * @param {String} text The text of the comment.
-     * @returns {Promise&lt;QuizSubmissionComment>}
-     */
-    postComment(text) {
-        return new Promise((resolve, reject) => {
-            this._client.make("POST", "/api/submission_comments", {
-                payload: {
-                    submission_comment: {
-						assignment_id: null,
-						assignment_type: null,
-						created_at: null,
-						submission_id: this.id,
-						submission_type: "QuizSubmission",
-						text,
-						updated_at: null,
-						user_id: null,
-						user_name: null,
-						user_type: null
-					}
-                }
-            }).then(response => {
-                if (response.submission_comment) {
-                    resolve(new QuizSubmissionComment(this._client, response.submission_comment));
-                } else {
-                    reject(response);
-                }
-            }).catch(reject);
-        });
-    }
-}
+<article>
+    <div class="container-overview">
+    
+        
 
-module.exports = QuizSubmission;</code></pre>
-        </article>
-    </section>
+    
+        <h2>Constructor</h2>
+    
+
+    <h4 class="name" id="SchoolIncomplete"><span class="type-signature"></span>new SchoolIncomplete<span class="signature">(client, response)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+    <div class="description">
+        <p>Instantiate a SchoolIncomplete object.</p>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="method-member-container flex flex-col w-100 overflow-auto mt-20">
+        <strong>Parameters:</strong>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>client</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Client</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The client that is instantiating this object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>response</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The data for the object.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolIncomplete.js.html">structures/SchoolIncomplete.js</a>, <a href="structures_SchoolIncomplete.js.html#line10">line 10</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="id"><span class="type-signature"></span>id<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    <p>The ID of the school.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolIncomplete.js.html">structures/SchoolIncomplete.js</a>, <a href="structures_SchoolIncomplete.js.html#line17">line 17</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="name"><span class="type-signature"></span>name<span class="type-signature"> :String</span></h4>
+
+
+
+
+<div class="description">
+    <p>The name of the school.</p>
+</div>
+
+
+
+    <div class="member-item-container flex">
+        <strong>Type: </strong>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolIncomplete.js.html">structures/SchoolIncomplete.js</a>, <a href="structures_SchoolIncomplete.js.html#line23">line 23</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="complete"><span class="type-signature"></span>complete<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="School.html">School</a>>}</span></h4>
+
+    
+
+
+
+    <div class="description">
+        <p>Get a completed version of the object.</p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class="details-item-container">
+            <dt class="tag-source">Source:</dt>
+            <dd class="tag-source"><ul class="dummy"><li>
+                <a href="structures_SchoolIncomplete.js.html">structures/SchoolIncomplete.js</a>, <a href="structures_SchoolIncomplete.js.html#line30">line 30</a>
+            </li></ul></dd>
+        </div>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="method-member-container mt-20">
+    <strong>Returns:</strong>
+        
+            
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;<a href="School.html">School</a>></span>
+
+
+    </dd>
+</dl>
+ 
+    </div>
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

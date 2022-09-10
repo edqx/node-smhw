@@ -1,7 +1,7 @@
 # node-shmw
 [npm repository](https://npmjs.com/package/node-smhw)
 
-[documentation](https://thechimp.store/node-smhw)
+[documentation](https://weakey.es/node-smhw)
 
 This project was made for my SMHW client, [Ryujin](https://github.com/edqx/Ryujin-SMHW)
 
